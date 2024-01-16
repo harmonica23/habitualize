@@ -4,7 +4,7 @@
 
 ##### By: Emily Segundo, Erica Harmon, Nina Raynor, & Rachel Carleton
 
-[GitHub]() | [Trello]() | [Wireframe]() | [Pitch Deck]()
+[GitHub]() | [Trello](https://trello.com/b/yd18VNAl/habitualize) | [Wireframe]() | [Pitch Deck]()
 
 ***
 

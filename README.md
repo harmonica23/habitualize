@@ -9,13 +9,25 @@
 ***
 
 _Description_
+
+Habitualize is a powerful Habit Tracker application that helps users build positive habits and break unwanted ones. It provides a user-friendly interface for tracking habits and setting goals. With Habitualize, users can customize their habits and visualize their progress over time, wathing their streaks grow as they build or break habits. 
+
 ***
+- Features: 
+    - Create daily habits
+    - Ability to edit and delete habits
+    - Habit tracker 
+    - Record of all habits 
+
+- Post MVP
+    - Integrate a third party API like Google calendar or Apple Health
+    - Upload an image with daily habit completion
+    - Reward feature 
+    - Milestone feature
 
 - Technologies Used
-    - Postresql
+    - PostreSQL
     - Django
     - Python
-- Getting Started
-    - To create this 
 
 _Credits_

@@ -43,3 +43,7 @@ Habitualize is a powerful Habit Tracker application that helps users build posit
 ***
 
 _Credits_
+
+[Flowers](https://www.vecteezy.com/members/miguelap)
+[Login Form](https://www.vecteezy.com/members/designzone247)
+[Calendar](https://www.vecteezy.com/members/113457908403087816098)

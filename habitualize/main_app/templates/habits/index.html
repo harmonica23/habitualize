@@ -2,5 +2,18 @@
 {% block content %}
 
 <h1>Habits List</h1>
+{% for habit in habits %}
+<div class="card">
+        <a href="{% url 'detail' habit.id %}">
+      <div class="card-content">
+        <span class="card-title">{{ habit.name }}</span>
+        <p>Breed: {{ habit.streak }}</p>
+        <p>Make/Break: {{ habit.make_or_break}}</p>
+      </div>
+    </div>
+  </a>
+{% endfor %}
+
+
 
 {% endblock %}

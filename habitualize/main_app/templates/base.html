@@ -1,12 +1,17 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Habitualize</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
 </head>
+
 <body>
+  <header class="navbar-fixed">
     <nav>
     <h1>Habit Tracker App</h1>
         <ul>
@@ -33,5 +38,7 @@
 <footer class="page-footer">
     <div class="right">All Rights Reserved &copy; {% now "Y"%} Habitualize &nbsp;</div>
 </footer>
+
 </body>
+
 </html>

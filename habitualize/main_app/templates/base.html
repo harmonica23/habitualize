@@ -13,9 +13,18 @@
             <li><a href="{% url 'home' %}">Habitualize</a></li>
         </ul>
         <ul class="right">
+        {% if user.is_authenticated %}
             <li><a href="{% url 'create' %}">Add A Habit</a></li>
             <li><a href="{% url 'index' %}">View All Habits</a></li>
             <li><a href="{% url 'calendar' %}">Calendar</a></li>
+            <li><form method="post" action="{% url 'logout' %}">
+                {% csrf_token %}
+                <button type="submit">Log Out</button>
+            </form></li>
+        {% else %}
+            <li><a href="{% url 'signup' %}">Sign Up</a></li>
+            <li><a href="{% url 'login' %}">Log In</a></li>
+        {% endif %}
         </ul>
         </div>
     </nav>

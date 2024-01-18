@@ -10,7 +10,7 @@
 
 ### **_Description_**
 
-Habitualize is a powerful Habit Tracker application that helps users build positive habits and break unwanted ones. It provides a user-friendly interface for tracking habits and setting goals. With Habitualize, users can customize their habits and visualize their progress over time, wathing their streaks grow as they build or break habits. 
+Habitualize is a powerful Habit Tracker application that helps users build positive habits and break unwanted ones. It provides a user-friendly interface for tracking habits and setting goals. With Habitualize, users can customize their habits and visualize their progress over time, watching their streaks grow as they build or break habits. 
 
 ***
 
@@ -23,7 +23,7 @@ Habitualize is a powerful Habit Tracker application that helps users build posit
 ***
 
 **_ERD Diagram_**
-![ERD](https://i.imgur.com/ODIFINj.png)
+![ERD](https://i.imgur.com/JfjAj5D.png)
 
 ***
 

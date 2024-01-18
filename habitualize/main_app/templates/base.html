@@ -6,25 +6,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Habitualize</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
 </head>
 
 <body>
-    <nav>
-    <h1>Habit Tracker App</h1>
-        <ul>
-            <li><a href="{% url 'home' %}">Habitualize</a></li>
-        </ul>
-        <ul class="right">
-            <li><a href="{% url 'create' %}">Add A Habit</a></li>
-            <li><a href="{% url 'index' %}">View All Habits</a></li>
-            <li><a href="{% url 'calendar' %}">Calendar</a></li>
-        </ul>
-        </div>
-    </nav>
-{% block content %}
-{% endblock %}
-<footer class="page-footer">
-    <div class="right">All Rights Reserved &copy; {% now "Y"%} Habitualize &nbsp;</div>
-</footer>
+    <header class="navbar-fixed">
+        <nav>
+            <div class="nav-wrapper">
+                <ul>
+                    <li><a href="{% url 'home' %}">Habitualize</a></li>
+                </ul>
+                <ul class="right">
+                    {% if user.is_authenticated %}
+                    <li><a href="{% url 'create' %}">Add A Habit</a></li>
+                    <li><a href="{% url 'index' %}">View All Habits</a></li>
+                    <li><a href="{% url 'calendar' %}">Calendar</a></li>
+                    <form method="post" action="{% url 'logout' %}">
+                        {% csrf_token %}
+                        <button type="submit">Log Out</button>
+                    </form>
+                    {% else %}
+                    <li><a href="{% url 'login' %}">Log In</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+        </nav>
+        {% block content %}
+        {% endblock %}
+        <footer class="page-footer">
+            <div class="right">All Rights Reserved &copy; {% now "Y"%} Habitualize &nbsp;</div>
+        </footer>
 </body>
+
 </html>

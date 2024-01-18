@@ -8,4 +8,5 @@ urlpatterns = [
   path('habits/<int:habit_id>/', views.habits_detail, name='detail'),
   path('habits/create/', views.HabitCreate.as_view(), name='create'),
   path('calendar/', views.calendar, name='calendar'),
+  path('accounts/signup/', views.signup, name='signup'),
 ]

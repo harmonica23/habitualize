@@ -91,7 +91,7 @@ DATABASES = {
   'default': {
     'ENGINE': 'django.db.backends.postgresql',
     'NAME': 'habitualize',
-    'USER': os.environ['USER'],
+    'USER': os.environ['USERNAME'],
     'PASSWORD': os.environ['PASSWORD'],
     'HOST': 'ep-shrill-night-a5yjtxi0.us-east-2.aws.neon.tech',
     'PORT': '5432',

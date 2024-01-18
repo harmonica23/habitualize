@@ -1,19 +1,20 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Habitualize</title>
 </head>
+
 <body>
-<h1>Habit Tracker App</h1>
-<footer class="page-footer">
-    <div class="right">All Rights Reserved &copy; {% now "Y"%} Habitualize &nbsp;</div>
-</footer>
+    <h1>Habit Tracker App</h1>
+    {% block content %}
+    {% endblock %}
+    <footer class="page-footer">
+        <div class="right">All Rights Reserved &copy; {% now "Y"%} Habitualize &nbsp;</div>
+    </footer>
 </body>
-<footer class="page-footer">
-    <div class="right">All Rights Reserved &copy; {% now "Y"%} Habitualize &nbsp;</div>
+
 </html>
-{% block content %}
-{% endblock %}

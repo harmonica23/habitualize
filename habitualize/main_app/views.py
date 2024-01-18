@@ -1,6 +1,7 @@
 from django.shortcuts import render
+from django.views.generic.edit import CreateView
 from .models import Habit
-from django.views.generic import ListView
+
 
 # Create your views here.
 def home(request):
@@ -17,5 +18,6 @@ def habits_detail(request, habit_id):
     'habit': habit
   })
 
-class HabitList(ListView):
+class HabitCreate(CreateView):
   model = Habit
+  fields = '__all__'

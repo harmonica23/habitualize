@@ -5,7 +5,7 @@ from .models import Habit
 
 # Create your views here.
 def habits_index(request):
-  habits = Habit.objects
+  habits = Habit.objects.all()
   return render(request, 'habits/index.html', {
     'habits': habits
   })

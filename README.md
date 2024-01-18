@@ -23,7 +23,7 @@ Habitualize is a powerful Habit Tracker application that helps users build posit
 ***
 
 **_ERD Diagram_**
-![ERD](https://i.imgur.com/ODIFINj.png)
+![ERD](https://i.imgur.com/JfjAj5D.png)
 
 ***
 

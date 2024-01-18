@@ -1,0 +1,40 @@
+/* Reset some default styles */
+body, h1, p, ul {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #ffffff;
+    color: #333;
+}
+
+nav {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px;
+}
+
+nav h1 {
+    margin: 0;
+}
+
+ul {
+    list-style-type: none;
+}
+
+ul li {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+a {
+    text-decoration: none;
+    color: #0b0b0b;
+}
+
+a:hover {
+    text-decoration: underline;
+}

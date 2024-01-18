@@ -1,5 +1,7 @@
 from django.shortcuts import render
+from django.views.generic.edit import CreateView
 from .models import Habit
+
 
 # Create your views here.
 def home(request):
@@ -15,3 +17,7 @@ def habits_detail(request, habit_id):
   return render(request, 'habits/detail.html',{
     'habit': habit
   })
+
+class HabitCreate(CreateView):
+  model = Habit
+  fields = '__all__'

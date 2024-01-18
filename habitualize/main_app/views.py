@@ -7,6 +7,9 @@ from .models import Habit
 def home(request):
   return render(request, 'home.html')
 
+def calendar(request):
+  return render(request, 'calendar.html')
+
 def habits_list(request):
   return render(request, 'habits/list.html', {
     'habits': habits
@@ -17,6 +20,7 @@ def habits_detail(request, habit_id):
   return render(request, 'habits/detail.html',{
     'habit': habit
   })
+
 
 class HabitCreate(CreateView):
   model = Habit

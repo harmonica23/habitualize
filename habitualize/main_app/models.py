@@ -12,7 +12,7 @@ class Habit(models.Model):
     return f'{self.name} ({self.id})'
   
   def get_absolute_url(self):
-    return reverse('list', kwargs={'habit_id': self.id})
+    return reverse('index', kwargs={'habit_id': self.id})
 
 class Journal(models.Model):
   entry = models.CharField(max_length=500)

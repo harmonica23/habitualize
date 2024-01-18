@@ -21,7 +21,10 @@ def habits_detail(request, habit_id):
     'habit': habit
   })
 
-
 class HabitCreate(CreateView):
   model = Habit
   fields = '__all__'
+
+  def form_valid(self, form):
+    form.instance.user = self.request.user
+    return super().form_valid(form)

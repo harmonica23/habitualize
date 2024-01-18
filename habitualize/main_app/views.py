@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import Habit
+from django.views.generic import ListView
 
 # Create your views here.
 def home(request):
@@ -15,3 +16,6 @@ def habits_detail(request, habit_id):
   return render(request, 'habits/detail.html',{
     'habit': habit
   })
+
+class HabitList(ListView):
+  model = Habit

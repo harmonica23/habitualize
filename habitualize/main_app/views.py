@@ -38,9 +38,8 @@ def habits_detail(request, habit_id):
 
 class HabitCreate(LoginRequiredMixin, CreateView):
   model = Habit
-  fields = ['name', 'goal', 'make_or_break', 'category']
+  fields = ['name', 'goal', 'make_or_break',]
   success_url ='/habits'
-
 
   def form_valid(self, form):
     form.instance.user = self.request.user 
@@ -48,11 +47,13 @@ class HabitCreate(LoginRequiredMixin, CreateView):
   
 class HabitUpdate(LoginRequiredMixin, UpdateView):
   model = Habit
-  fields = ['name', 'goal', 'make_or_break', 'category']
+  fields = ['name', 'goal', 'make_or_break', 'status']
 
   def get_success_url(self):
         return reverse('detail', kwargs={'habit_id': self.object.id})
   
+  
+
 class HabitDelete(LoginRequiredMixin, DeleteView):
   model = Habit
   success_url = '/habits'
@@ -70,4 +71,3 @@ def signup(request):
   form = UserCreationForm()
   context = {'form': form, 'error_message': error_message}
   return render(request, 'registration/signup.html', context)
-

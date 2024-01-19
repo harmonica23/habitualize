@@ -19,7 +19,7 @@
         <a href="{% url 'detail' habit.id %}">
           <div class="container">
             <p><h2>{{ habit.name }}</h2></p>
-            <p>Status: {{ habit.status }}</p>
+            <p>Status: {% if habit.status %}Active{% else %}Paused{% endif %}</p>
           </div>
         </a>
       </div>

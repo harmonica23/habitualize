@@ -31,8 +31,8 @@ def habits_detail(request, habit_id):
 
 class HabitCreate(LoginRequiredMixin, CreateView):
   model = Habit
-  fields = '__all__'
-  success_url='/habits'
+  fields = ['name', 'goal', 'make_or_break']
+  success_url ='/habits'
 
   def form_valid(self, form):
     form.instance.user = self.request.user 
@@ -40,7 +40,7 @@ class HabitCreate(LoginRequiredMixin, CreateView):
   
 class HabitUpdate(LoginRequiredMixin, UpdateView):
   model = Habit
-  fields = '__all__'
+  fields = ['name', 'goal', 'make_or_break']
 
 class HabitDelete(LoginRequiredMixin, DeleteView):
   model = Habit

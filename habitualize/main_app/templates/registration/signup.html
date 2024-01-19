@@ -1,14 +1,37 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1>Sign Up</h1>
+<div class="container">
+  <div class="form_area">
+    <p class="title">Sign Up</p>
 
-<p class="red-text">{{ error_message }}</p>
+    <p class="red-text">{{ error_message }}</p>
 
-<form action="{% url 'signup' %}" method="POST">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <button type="submit" class="btn">Sign Up</button>
-</form>
+    <form action="{% url 'signup' %}" method="POST" class="form_group">
+      {% csrf_token %}
+      {{ form.as_p|safe }}
+      
+      <div class="form_group">
+        <label class="sub_title" for="name">Name</label>
+        <input placeholder="Enter your full name" class="form_style" type="text" name="name">
+      </div>
+
+      <div class="form_group">
+        <label class="sub_title" for="email">Email</label>
+        <input placeholder="Enter your email" id="email" class="form_style" type="email" name="email">
+      </div>
+
+      <div class="form_group">
+        <label class="sub_title" for="password">Password</label>
+        <input placeholder="Enter your password" id="password" class="form_style" type="password" name="password">
+      </div>
+
+      <button type="submit" class="signup-btn">Sign Up</button>
+
+      <p>Have an Account? <a class="link" href="">Login Here!</a></p>
+    </form>
+
+  </div>
+</div>
 
 {% endblock %}

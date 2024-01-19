@@ -5,15 +5,12 @@
 {% for habit in habits %}
 <div class="card">
         <a href="{% url 'detail' habit.id %}">
-      <div class="card-content">
-        <span class="card-title">{{ habit.name }}</span>
-        <p>Streak: {{ habit.streak }}</p>
-        <p class="first_card">Make/Break: {{ habit.make_or_break}}</p>
+      <div class="container">
+        <p><h2> {{ habit.name }} </h2></p>
+        <p>Status: {{ habit.make_or_break}}</p>
       </div>
     </div>
   </a>
 {% endfor %}
-
-
 
 {% endblock %}

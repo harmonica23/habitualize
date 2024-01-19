@@ -12,4 +12,6 @@ urlpatterns = [
   path('habits/<int:pk>/update/', views.HabitUpdate.as_view(), name='habits_update'),
   path('habits/<int:pk>/delete/', views.HabitDelete.as_view(), name='habits_delete'),
   path('calendar/', views.CalendarView.as_view(), name='calendar'),
+  path('event/new/', views.event, name='event_new'),
+  path('event/edit/<int:event_id>/', views.event, name='event_edit'),
 ]

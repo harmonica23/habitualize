@@ -10,7 +10,7 @@
           <p>Name: {{ habit.name }}</p>
           <p>Goal: {{ habit.goal }}</p>
           <p>Make/Break: {{ habit.make_or_break }}</p>
-          <p>Status: {% if habit.status %}Active{% else %}Paused{% endif %}</p>
+          <p>Status: {% if habit.status %}Active{% else %}Inactive{% endif %}</p>
           <p>Category: {{ habit.category }}</p> 
         </div>
         <div class="card-action">

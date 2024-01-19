@@ -2,15 +2,28 @@
 {% block content %}
 
 <h1>Habits List</h1>
-{% for habit in habits %}
-<div class="card">
+<p>Order by:
+  <a href="?order_by=created_at">Created at</a>
+  <a href="?order_by=name">Name</a>
+  {% if current_order == 'created_at' %}
+      <a href="?order_by=-created_at"></a>
+  {% else %}
+      <a href="?order_by=created_at"></a>
+  {% endif %}
+</p>
+
+<ul>
+  {% for habit in habits %}
+      <li>{{ habit.name }} - Created at: {{ habit.created_at }}</li>
+      <div class="card">
         <a href="{% url 'detail' habit.id %}">
-      <div class="container">
-        <p><h2> {{ habit.name }} </h2></p>
-        <p>Status: {{ habit.make_or_break}}</p>
+          <div class="container">
+            <p><h2>{{ habit.name }}</h2></p>
+            <p>Status: {{ habit.make_or_break }}</p>
+          </div>
+        </a>
       </div>
-    </div>
-  </a>
-{% endfor %}
+  {% endfor %}
+</ul>
 
 {% endblock %}

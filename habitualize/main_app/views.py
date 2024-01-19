@@ -10,7 +10,12 @@ from .models import Habit
 # Create your views here.
 @login_required
 def habits_index(request):
-  habits = Habit.objects.filter(user=request.user)
+  order_by = request.GET.get('order_by', 'created_at')
+  habits = Habit.objects.filter(user=request.user).order_by(order_by)
+  context = {
+        'habits': habits,
+        'current_order': order_by,
+    }
   return render(request, 'habits/index.html', {
     'habits': habits
   })

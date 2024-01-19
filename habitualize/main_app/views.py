@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from .models import Habit
@@ -32,6 +32,14 @@ class HabitCreate(CreateView):
   def form_valid(self, form):
     form.instance.user = self.request.user 
     return super().form_valid(form)
+  
+class HabitUpdate(UpdateView):
+  model = Habit
+  fields = '__all__'
+
+class HabitDelete(DeleteView):
+  model = Habit
+  success_url = '/habits'
   
 def signup(request):
   error_message = ''

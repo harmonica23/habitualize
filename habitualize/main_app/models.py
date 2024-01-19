@@ -8,6 +8,7 @@ class Habit(models.Model):
   name = models.CharField(max_length=100)
   goal = models.IntegerField()
   make_or_break = models.CharField(max_length=100)
+  status = models.BooleanField(default=True)
   user = models.ForeignKey(User, on_delete=models.CASCADE)
   created_at = models.DateTimeField(auto_now_add=True)
 
@@ -15,7 +16,7 @@ class Habit(models.Model):
     return f'{self.name} ({self.id})'
   
   def get_absolute_url(self):
-    return reverse('index', kwargs={'habit_id': self.id})
+    return reverse('detail', kwargs={'habit_id': self.id})
 
 class Journal(models.Model):
   entry = models.CharField(max_length=500)

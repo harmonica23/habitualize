@@ -3,4 +3,8 @@
 
 <h1>Habit Calendar</h1>
 
+<a href="{% url 'calendar' %}?{{ prev_month }}"> Previous Month </a>
+<a href="{% url 'calendar' %}?{{ next_month }}"> Next Month </a>
+{{ calendar }}
+
 {% endblock %}

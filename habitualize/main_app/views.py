@@ -7,6 +7,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Habit
 from django.urls import reverse
+from .forms import HabitForm
 
 
 # Create your views here.
@@ -47,11 +48,11 @@ class HabitCreate(LoginRequiredMixin, CreateView):
   
 class HabitUpdate(LoginRequiredMixin, UpdateView):
   model = Habit
-  fields = ['name', 'goal', 'make_or_break', 'status']
+  form_class = HabitForm
+  template_name = 'habits/habit_update.html'
 
   def get_success_url(self):
         return reverse('detail', kwargs={'habit_id': self.object.id})
-  
   
 
 class HabitDelete(LoginRequiredMixin, DeleteView):

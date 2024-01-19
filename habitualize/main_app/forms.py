@@ -10,5 +10,5 @@ class HabitForm(forms.ModelForm):
         model = Habit
         fields = ['name', 'goal', 'make_or_break', 'status']
         widgets = {
-            'status': forms.RadioSelect(choices=((True, 'Active'),(False, 'Paused')))
+            'status': forms.RadioSelect(choices=((True, 'Active'),(False, 'Inactive')))
         }

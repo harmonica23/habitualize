@@ -7,12 +7,11 @@
     <div class="col s6">
       <div class="card">
         <div class="card-content">
-          <span class="card-title">{{ habit.name }}</span>
           <p>Name: {{ habit.name }}</p>
-          <p>Goal: {{ habit.streak }}</p>
+          <p>Goal: {{ habit.goal }}</p>
           <p>Make/Break: {{ habit.make_or_break }}</p>
           <p>Status: {% if habit.status %}Active{% else %}Paused{% endif %}</p>
-          <p>Category: {{ habit.category }}</p>  
+          <p>Category: {{ habit.category }}</p> 
         </div>
         <div class="card-action">
           <a href="{% url 'habits_update' habit.id %}">Edit</a>

@@ -11,6 +11,7 @@ from django.urls import reverse
 from .utils import Calendar
 from django.utils.safestring import mark_safe
 from datetime import datetime
+from .forms import HabitForm
 
 # Create your views here.
 @login_required
@@ -44,18 +45,21 @@ class HabitCreate(LoginRequiredMixin, CreateView):
   fields = ['name', 'goal', 'make_or_break', 'category']
   success_url ='/habits'
 
-
   def form_valid(self, form):
     form.instance.user = self.request.user 
     return super().form_valid(form)
   
 class HabitUpdate(LoginRequiredMixin, UpdateView):
   model = Habit
-  fields = ['name', 'goal', 'make_or_break', 'category']
+
+  form_class = HabitForm
+  template_name = 'habits/habit_update.html'
 
   def get_success_url(self):
         return reverse('detail', kwargs={'habit_id': self.object.id})
   
+
+
 class HabitDelete(LoginRequiredMixin, DeleteView):
   model = Habit
   success_url = '/habits'

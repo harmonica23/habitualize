@@ -4,7 +4,7 @@
 <h1>Habits List</h1>
 <p>Order by:
   <a href="?order_by=created_at">Created at</a>
-  <a href="?order_by=name">Name</a>
+  <a href="?order_by=category">Category</a>
   {% if current_order == 'created_at' %}
       <a href="?order_by=-created_at"></a>
   {% else %}
@@ -20,7 +20,7 @@
           <div class="container">
             <p><h2>{{ habit.name }}</h2></p>
             <p>Status: {% if habit.status %}Active{% else %}Paused{% endif %}</p>
-            <p>Category: {{ habit.category }}</p>  {# Add this line for displaying the category #}
+            <p>Category: {{ habit.category }}</p>  
           </div>
         </a>
       </div>

@@ -39,7 +39,7 @@ def habits_detail(request, habit_id):
 
 class HabitCreate(LoginRequiredMixin, CreateView):
   model = Habit
-  fields = ['name', 'goal', 'make_or_break',]
+  fields = ['name', 'goal', 'make_or_break', 'category']
   success_url ='/habits'
 
   def form_valid(self, form):
@@ -48,12 +48,14 @@ class HabitCreate(LoginRequiredMixin, CreateView):
   
 class HabitUpdate(LoginRequiredMixin, UpdateView):
   model = Habit
+
   form_class = HabitForm
   template_name = 'habits/habit_update.html'
 
   def get_success_url(self):
         return reverse('detail', kwargs={'habit_id': self.object.id})
   
+
 
 class HabitDelete(LoginRequiredMixin, DeleteView):
   model = Habit

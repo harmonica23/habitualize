@@ -13,6 +13,10 @@
           <p>Streak: {{ habit.streak }}</p>
           <p>Make/Break: {{ habit.make_or_break }}</p>
         </div>
+        <div class="card-action">
+          <a href="{% url 'habits_update' habit.id %}">Edit</a>
+          <a href="{% url 'habits_delete' habit.id %}">Delete</a>
+        </div>
       </div>
 
 {% endblock %}

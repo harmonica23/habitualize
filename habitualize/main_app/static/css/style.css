@@ -7,6 +7,8 @@
 }
 
 body {
+    background-image: url('../images/growing-flower.jpg');
+    display: flex;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -15,23 +17,24 @@ body {
     height: 100vh;
 }
 
-body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+body.landing-page {
+    background-image: url('../../static/images/growing-flower.jpg');
+}
+
+main {
+    flex: 1;
 }
 
 .footer {
     margin-top: auto;
     padding-top: 2vmin;
 }
-
-.flex-grow-1 {
-    flex-grow: 1;
-    margin-bottom: 2vmin;
-}
 /* overall style end */
 
+/* nav bar override */
+#navbar {
+    background-color: rgba(255, 255, 255, 0.5); 
+}
 
 /* sign up form start */
 .container {

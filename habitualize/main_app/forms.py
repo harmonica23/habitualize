@@ -1,7 +1,9 @@
 from django.contrib.auth.forms import UserCreationForm
 from django import forms
 from django.contrib.auth.models import User
-from .models import Habit
+from .models import Habit, Event
+from django.forms import ModelForm, DateInput
+
 
 class RegisterUserForm(UserCreationForm):
     username = forms.CharField(label='Create User Name', widget=forms.TextInput(attrs={'class': ['form_style', 'sub_title', 'form_area', 'form_group']}))
@@ -19,10 +21,6 @@ class RegisterUserForm(UserCreationForm):
         self.fields['password1'].widget.attrs['class'] = ['form_style', 'sub_title', 'form_area', 'form_group'] 
         self.fields['password2'].widget.attrs['class'] = ['form_style', 'sub_title', 'form_area', 'form_group'] 
 
-from .models import Habit, Event
-from django.forms import ModelForm, DateInput
-
-
 class HabitForm(forms.ModelForm):
     class Meta:
         model = Habit
@@ -37,11 +35,9 @@ class EventForm(ModelForm):
         widgets = {
             'start_time': DateInput(attrs={'type': 'datetime-local'}, format='%Y-%m-%dT%H:%M'),
             'end_time': DateInput(attrs={'type': 'datetime-local'}, format='%Y-%m-%dT%H:%M'),
-    }
-    fields = '__all__'
-
+        }
+        fields = '__all__'
     def __init__(self, *args, **kwargs):
         super(EventForm, self).__init__(*args, **kwargs)
         self.fields['start_time'].input_formats = ('%Y-%m-%dT%H:%M',)
         self.fields['end_time'].input_formats = ('%Y-%m-%dT%H:%M',)
-

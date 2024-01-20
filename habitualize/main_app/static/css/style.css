@@ -1,4 +1,20 @@
+/* ERICA CSS start */
 /* overall style start*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    width: 100%;
+    height: 100vh;
+}
+
 body {
     display: flex;
     flex-direction: column;
@@ -7,10 +23,12 @@ body {
 
 .footer {
     margin-top: auto;
+    padding-top: 2vmin;
 }
 
 .flex-grow-1 {
     flex-grow: 1;
+    margin-bottom: 2vmin;
 }
 /* overall style end */
 
@@ -35,6 +53,7 @@ body {
     border: 2px solid #264143;
     border-radius: 20px;
     box-shadow: 3px 4px 0px 1px #E99F4C;
+    padding: 5vmin;
 }
 
 .title {
@@ -44,19 +63,23 @@ body {
     margin-top: 20px;
 }
 
-.sub_title, label {
-    font-weight: 600 !important;
-    margin: 5px 0 !important;
+.sub_title,
+label {
+    font-weight: 600;
+    margin: 5px 0;
 }
 
-.form_group, label, input {
+.form_group,
+label,
+input {
     display: flex;
     flex-direction: column;
     align-items: baseline;
     margin: 10px;
 }
 
-.form_style, input {
+.form_style,
+input {
     outline: none;
     border: 2px solid #264143;
     box-shadow: 3px 4px 0px 1px #E99F4C;
@@ -67,12 +90,13 @@ body {
 }
 
 .form_style:focus,
-.btn:focus, input {
+.btn:focus,
+input {
     transform: translateY(4px);
     box-shadow: 1px 2px 0px 0px #E99F4C;
 }
 
-.signup-btn {
+.signup-btn, .login-btn, .submit-btn {
     padding: 15px;
     margin: 25px 0px;
     width: 290px;
@@ -93,13 +117,27 @@ body {
     padding: 5px;
 }
 
-input, label, p, .signup-btn {
+input,
+label,
+p,
+.signup-btn {
     margin: auto;
 }
 /* sign up form end */
 
 
-/* rachel css start */
+/* login button make smaller */
+.login-btn, .submit-btn {
+    padding: 0;
+    max-width: 15vmin;
+}
+
+
+
+
+
+
+/* RACHEL css start */
 
 .left {
     float: left;
@@ -108,23 +146,25 @@ input, label, p, .signup-btn {
 .right {
     float: right;
 }
-  
+
 .btn {
     outline: none;
     color: black;
     background-color: transparent;
     box-shadow: 0 0 0 0;
 }
-  
+
 .clearfix {
     margin: 15px;
 }
 
 .form {
     margin: auto;
-  }
-  
-.form input, .form select, .form textarea {
+}
+
+.form input,
+.form select,
+.form textarea {
     border-radius: 5px;
     border: 1px solid #17a2b8;
     outline: none;
@@ -132,4 +172,5 @@ input, label, p, .signup-btn {
     padding: 5px;
     width: 100%;
 }
+
 /* rachel css end */

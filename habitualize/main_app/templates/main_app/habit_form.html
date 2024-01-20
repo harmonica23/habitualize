@@ -1,40 +1,46 @@
-{% extends 'base.html' %} {% block content %} {% if object %}
-<h1>Edit <span class="teal-text">{{ object.name }}</span></h1>
-{% else %}
-<div class="container">
-  <div class="form_area">
-    <p class="title">ADD A HABIT</p>
+{% extends 'base.html' %}
 
-    <form action="" method="POST" id="habitForm">
-      {% csrf_token %} {{ form.name.label_tag }} {{ form.name }}<br />
-      {{ form.goal.label_tag }} {{ form.goal }}<br />
-      {{ form.make_or_break.label_tag }} {{ form.make_or_break }}<br />
-      {{ form.status.label_tag }} {{ form.status }}<br />
-      {{ form.category.label_tag }} {{ form.category }}
+{% block content %}
+  {% if object %}
+    <h1>Edit <span class="teal-text">{{ object.name }}</span></h1>
+  {% else %}
+    <div class="container">
+      <div class="form_area">
+        <p class="title">ADD A HABIT</p>
 
-      <div id="id_new_category_row" style="display: none">
-        {{ form.new_category.label_tag }} {{ form.new_category }}
+        <form action="" method="POST" id="habitForm">
+          {% csrf_token %}
+          {{ form.name.label_tag }} {{ form.name }}<br />
+          {{ form.goal.label_tag }} {{ form.goal }}<br />
+          {{ form.make_or_break.label_tag }} {{ form.make_or_break }}<br />
+          {{ form.category.label_tag }} {{ form.category }}<br />
+
+          <div id="id_new_category_row" style="display: none">
+            {{ form.new_category.label_tag }} {{ form.new_category }}
+          </div>
+
+          {{ form.status.label_tag }} {{ form.status }}<br /> {# Moved 'status' here #}
+
+          <input type="submit" value="Submit" class="submit-btn" />
+        </form>
+
+        <script>
+          $("#id_category").on("change", function () {
+            let selectedCategory = $(this).val();
+            let newCategoryField = $("#id_new_category_row");
+
+            if (selectedCategory === "Other") {
+              newCategoryField.show();
+            } else {
+              newCategoryField.hide();
+            }
+          });
+
+          $(document).ready(function () {
+            $("#id_category").trigger("change");
+          });
+        </script>
       </div>
-
-      <input type="submit" value="Submit" class="submit-btn" />
-    </form>
-
-    <script>
-      $("#id_category").on("change", function () {
-        let selectedCategory = $(this).val();
-        let newCategoryField = $("#id_new_category_row");
-
-        if (selectedCategory === "Other") {
-          newCategoryField.show();
-        } else {
-          newCategoryField.hide();
-        }
-      });
-
-      $(document).ready(function () {
-        $("#id_category").trigger("change");
-      });
-    </script>
-  </div>
-</div>
-{% endif %} {% endblock %}
+    </div>
+  {% endif %}
+{% endblock %}

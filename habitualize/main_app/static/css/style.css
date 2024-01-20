@@ -6,6 +6,10 @@
     box-sizing: border-box;
 }
 
+body.landing-page {
+    background-image: url('../images/growing-flower.jpg') !important;
+}
+
 body {
     background-image: url('../images/growing-flower.jpg');
     display: flex;
@@ -17,9 +21,6 @@ body {
     height: 100vh;
 }
 
-body.landing-page {
-    background-image: url('../../static/images/growing-flower.jpg');
-}
 
 main {
     flex: 1;
@@ -134,7 +135,9 @@ p,
     max-width: 15vmin;
 }
 
-
+#id_status_0, #id_status_1 {
+    box-shadow: none !important;
+}
 
 
 

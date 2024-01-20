@@ -30,6 +30,7 @@ body {
     flex-grow: 1;
     margin-bottom: 2vmin;
 }
+
 /* overall style end */
 
 
@@ -65,8 +66,13 @@ body {
 
 .sub_title,
 label {
+<<<<<<< HEAD
     font-weight: 600;
     margin: 5px 0;
+=======
+    font-weight: 600 !important;
+    margin: 5px 0 !important;
+>>>>>>> 3e73d93ee969d360b7a42d3df8f7bae6197b3fe3
 }
 
 .form_group,
@@ -123,9 +129,11 @@ p,
 .signup-btn {
     margin: auto;
 }
+
 /* sign up form end */
 
 
+<<<<<<< HEAD
 /* login button make smaller */
 .login-btn, .submit-btn {
     padding: 0;
@@ -139,6 +147,10 @@ p,
 
 /* RACHEL css start */
 
+=======
+/* rachel css start */
+/* 
+>>>>>>> 3e73d93ee969d360b7a42d3df8f7bae6197b3fe3
 .left {
     float: left;
 }
@@ -171,6 +183,10 @@ p,
     background: none;
     padding: 5px;
     width: 100%;
+<<<<<<< HEAD
 }
+=======
+} */
+>>>>>>> 3e73d93ee969d360b7a42d3df8f7bae6197b3fe3
 
 /* rachel css end */

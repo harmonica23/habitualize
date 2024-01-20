@@ -73,6 +73,7 @@ main {
 }
 
 .form_group,
+.submit-btn,
 label,
 input {
     display: flex;
@@ -123,7 +124,8 @@ input {
 input,
 label,
 p,
-.signup-btn {
+.signup-btn,
+.submit-btn {
     margin: auto;
 }
 /* sign up form end */

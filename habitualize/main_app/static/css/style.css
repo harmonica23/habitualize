@@ -1,3 +1,20 @@
+/* overall style start*/
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.footer {
+    margin-top: auto;
+}
+
+.flex-grow-1 {
+    flex-grow: 1;
+}
+/* overall style end */
+
+
 /* sign up form start */
 .container {
     display: flex;
@@ -27,19 +44,19 @@
     margin-top: 20px;
 }
 
-.sub_title {
-    font-weight: 600;
-    margin: 5px 0;
+.sub_title, label {
+    font-weight: 600 !important;
+    margin: 5px 0 !important;
 }
 
-.form_group {
+.form_group, label, input {
     display: flex;
     flex-direction: column;
     align-items: baseline;
     margin: 10px;
 }
 
-.form_style {
+.form_style, input {
     outline: none;
     border: 2px solid #264143;
     box-shadow: 3px 4px 0px 1px #E99F4C;
@@ -50,7 +67,7 @@
 }
 
 .form_style:focus,
-.btn:focus {
+.btn:focus, input {
     transform: translateY(4px);
     box-shadow: 1px 2px 0px 0px #E99F4C;
 }
@@ -75,7 +92,14 @@
     color: #264143;
     padding: 5px;
 }
+
+input, label, p, .signup-btn {
+    margin: auto;
+}
 /* sign up form end */
+
+
+/* rachel css start */
 
 .left {
     float: left;
@@ -108,3 +132,4 @@
     padding: 5px;
     width: 100%;
 }
+/* rachel css end */

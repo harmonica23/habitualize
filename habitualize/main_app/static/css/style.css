@@ -6,6 +6,10 @@
     box-sizing: border-box;
 }
 
+body.landing-page {
+    background-image: url('../images/growing-flower.jpg') !important;
+}
+
 body {
     background-image: url('../images/growing-flower.jpg');
     display: flex;
@@ -17,9 +21,6 @@ body {
     height: 100vh;
 }
 
-body.landing-page {
-    background-image: url('../../static/images/growing-flower.jpg');
-}
 
 main {
     flex: 1;
@@ -43,6 +44,7 @@ main {
     justify-content: center;
     flex-direction: column;
     text-align: center;
+    margin-top: 3vmin;
 }
 
 .form_area {
@@ -72,6 +74,7 @@ main {
 }
 
 .form_group,
+.submit-btn,
 label,
 input {
     display: flex;
@@ -93,7 +96,8 @@ input {
 
 .form_style:focus,
 .btn:focus,
-input {
+input,
+#id_category {
     transform: translateY(4px);
     box-shadow: 1px 2px 0px 0px #E99F4C;
 }
@@ -122,7 +126,8 @@ input {
 input,
 label,
 p,
-.signup-btn {
+.signup-btn,
+.submit-btn {
     margin: auto;
 }
 /* sign up form end */
@@ -134,7 +139,9 @@ p,
     max-width: 15vmin;
 }
 
-
+#id_status_0, #id_status_1 {
+    box-shadow: none !important;
+}
 
 
 

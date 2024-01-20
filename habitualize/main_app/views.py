@@ -1,4 +1,3 @@
-
 from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth import login
@@ -11,7 +10,7 @@ from django.urls import reverse
 from .utils import Calendar
 from django.utils.safestring import mark_safe
 from datetime import datetime
-from .forms import HabitForm, EventForm
+from .forms import HabitForm, RegisterUserForm, EventForm
 
 # Create your views here.
 @login_required
@@ -63,20 +62,22 @@ class HabitUpdate(LoginRequiredMixin, UpdateView):
 class HabitDelete(LoginRequiredMixin, DeleteView):
   model = Habit
   success_url = '/habits'
+
   
 def signup(request):
   error_message = ''
   if request.method == 'POST':
-    form = UserCreationForm(request.POST)
+    form = RegisterUserForm(request.POST)
     if form.is_valid():
       user = form.save()
       login(request, user)
       return redirect('index')
     else:
       error_message = 'Invalid sign up - try again'
-  form = UserCreationForm()
+  form = RegisterUserForm()
   context = {'form': form, 'error_message': error_message}
   return render(request, 'registration/signup.html', context)
+
 
 class CalendarView(ListView):
     model = Event

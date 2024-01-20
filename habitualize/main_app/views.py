@@ -11,6 +11,10 @@ from .utils import Calendar
 from django.utils.safestring import mark_safe
 from datetime import datetime
 from .forms import HabitForm, RegisterUserForm, EventForm
+from django.utils.safestring import mark_safe
+from datetime import datetime, timedelta
+from calendar import monthcalendar
+from .utils import prev_month, next_month
 
 # Create your views here.
 @login_required
@@ -83,42 +87,47 @@ def signup(request):
   context = {'form': form, 'error_message': error_message}
   return render(request, 'registration/signup.html', context)
 
-
 class CalendarView(ListView):
     model = Event
     template_name = 'calendar.html'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        today = datetime.today()
+        d = get_date(self.request.GET.get('month', None))
 
-        # use today's date for the calendar
-        d = get_date(self.request.GET.get('day', None))
 
-        # Instantiate our calendar class with today's year and date
+        try: 
+          prev_month_value = prev_month(d)
+          next_month_value = next_month(d)
+        except Exception as e:
+          print(f"Error calculating prev_month and next_month: {e}")
+          prev_month_value = ''
+          next_month_value = ''
+
         cal = Calendar(d.year, d.month)
-
-        # Call the formatmonth method, which returns our calendar as a table
         html_cal = cal.formatmonth(withyear=True)
+
         context['calendar'] = mark_safe(html_cal)
+        context['prev_month'] = prev_month_value
+        context['next_month'] = next_month_value
+
         return context
 
-def get_date(req_day):
-    if req_day:
-        year, month = (int(x) for x in req_day.split('-'))
-        return date(year, month, day=1)
+def get_date(req_month):
+    if req_month:
+        year, month = (int(x) for x in req_month.split('-'))
+        return datetime(year, month, day=1)
     return datetime.today()
 
 def prev_month(d):
-    first = d.replace(day=1)
-    prev_month = first - timedelta(days=1)
-    month = 'month=' + str(prev_month.year) + '-' + str(prev_month.month)
+    prev_month = d - timedelta(days=1)
+    month = f"{prev_month.year}-{prev_month.month:02d}"
     return month
 
 def next_month(d):
-    days_in_month = calendar.monthrange(d.year, d.month)[1]
-    last = d.replace(day=days_in_month)
-    next_month = last + timedelta(days=1)
-    month = 'month=' + str(next_month.year) + '-' + str(next_month.month)
+    next_month = d + timedelta(days=32)
+    month = f"{next_month.year}-{next_month.month:02d}"
     return month
 
 def event(request, event_id=None):

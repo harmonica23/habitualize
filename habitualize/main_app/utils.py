@@ -38,3 +38,11 @@ class Calendar(HTMLCalendar):
 		for week in self.monthdays2calendar(self.year, self.month):
 			cal += f'{self.formatweek(week, events)}\n'
 		return cal
+	
+def prev_month(d):
+    prev_month = d.replace(day=1) - timedelta(days=1)
+    return f"{prev_month.year}-{prev_month.month:02d}"
+
+def next_month(d):
+    next_month = (d.replace(day=1) + timedelta(days=32)).replace(day=1)
+    return f"{next_month.year}-{next_month.month:02d}"

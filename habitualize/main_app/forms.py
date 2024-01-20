@@ -21,13 +21,27 @@ class RegisterUserForm(UserCreationForm):
         self.fields['password1'].widget.attrs['class'] = ['form_style', 'sub_title', 'form_area', 'form_group'] 
         self.fields['password2'].widget.attrs['class'] = ['form_style', 'sub_title', 'form_area', 'form_group'] 
 
+
 class HabitForm(forms.ModelForm):
+    new_category = forms.CharField(max_length=50, required=False, label='New Category')
+
     class Meta:
         model = Habit
-        fields = ['name', 'goal', 'make_or_break', 'status']
+        fields = ['name', 'goal', 'make_or_break', 'status', 'category', 'new_category']
         widgets = {
-            'status': forms.RadioSelect(choices=((True, 'Active'),(False, 'Inactive')))
+            'status': forms.RadioSelect(choices=((True, 'Active'), (False, 'Inactive')))
         }
+
+    def clean(self):
+        cleaned_data = super().clean()
+        category = cleaned_data.get('category')
+        new_category = cleaned_data.get('new_category')
+
+        if not category and not new_category:
+            raise forms.ValidationError('Please select a category or enter a new one.')
+
+        return cleaned_data
+
 
 class EventForm(ModelForm):
     class Meta:

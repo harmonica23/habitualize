@@ -40,14 +40,20 @@ def habits_detail(request, habit_id):
   })
 
 class HabitCreate(LoginRequiredMixin, CreateView):
-  model = Habit
-  fields = ['name', 'goal', 'make_or_break', 'category']
-  success_url ='/habits'
+    model = Habit
+    form_class = HabitForm
+    template_name = 'main_app/habit_form.html'
+    success_url = '/habits'
 
-  def form_valid(self, form):
-    form.instance.user = self.request.user 
-    return super().form_valid(form)
-  
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        new_category = form.cleaned_data.get('new_category')
+
+        if new_category:
+            form.instance.category = new_category
+
+        return super().form_valid(form)
+
 class HabitUpdate(LoginRequiredMixin, UpdateView):
   model = Habit
 
@@ -56,7 +62,6 @@ class HabitUpdate(LoginRequiredMixin, UpdateView):
 
   def get_success_url(self):
         return reverse('detail', kwargs={'habit_id': self.object.id})
-  
 
 
 class HabitDelete(LoginRequiredMixin, DeleteView):

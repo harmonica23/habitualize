@@ -9,13 +9,11 @@
       {% csrf_token %} {{ form.name.label_tag }} {{ form.name }}<br />
       {{ form.goal.label_tag }} {{ form.goal }}<br />
       {{ form.make_or_break.label_tag }} {{ form.make_or_break }}<br />
-      {{ form.status.label_tag }} {{ form.status }}<br />
-      {{ form.category.label_tag }} {{ form.category }}
-
+      {{ form.category.label_tag }} {{ form.category }}<br />  
       <div id="id_new_category_row" style="display: none">
         {{ form.new_category.label_tag }} {{ form.new_category }}
       </div>
-
+      {{ form.status.label_tag }} {{ form.status }}
       <input type="submit" value="Submit" class="submit-btn" />
     </form>
 

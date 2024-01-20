@@ -12,6 +12,7 @@ body {
 .flex-grow-1 {
     flex-grow: 1;
 }
+
 /* overall style end */
 
 
@@ -44,19 +45,23 @@ body {
     margin-top: 20px;
 }
 
-.sub_title, label {
+.sub_title,
+label {
     font-weight: 600 !important;
     margin: 5px 0 !important;
 }
 
-.form_group, label, input {
+.form_group,
+label,
+input {
     display: flex;
     flex-direction: column;
     align-items: baseline;
     margin: 10px;
 }
 
-.form_style, input {
+.form_style,
+input {
     outline: none;
     border: 2px solid #264143;
     box-shadow: 3px 4px 0px 1px #E99F4C;
@@ -67,7 +72,8 @@ body {
 }
 
 .form_style:focus,
-.btn:focus, input {
+.btn:focus,
+input {
     transform: translateY(4px);
     box-shadow: 1px 2px 0px 0px #E99F4C;
 }
@@ -93,14 +99,18 @@ body {
     padding: 5px;
 }
 
-input, label, p, .signup-btn {
+input,
+label,
+p,
+.signup-btn {
     margin: auto;
 }
+
 /* sign up form end */
 
 
 /* rachel css start */
-
+/* 
 .left {
     float: left;
 }
@@ -108,28 +118,31 @@ input, label, p, .signup-btn {
 .right {
     float: right;
 }
-  
+
 .btn {
     outline: none;
     color: black;
     background-color: transparent;
     box-shadow: 0 0 0 0;
 }
-  
+
 .clearfix {
     margin: 15px;
 }
 
 .form {
     margin: auto;
-  }
-  
-.form input, .form select, .form textarea {
+}
+
+.form input,
+.form select,
+.form textarea {
     border-radius: 5px;
     border: 1px solid #17a2b8;
     outline: none;
     background: none;
     padding: 5px;
     width: 100%;
-}
+} */
+
 /* rachel css end */

@@ -12,19 +12,41 @@
   {% endif %}
 </p>
 
+<h2>Active Habits</h2>
 <ul>
   {% for habit in habits %}
+  {% if habit.status and not habit.paused %}
       <li>{{ habit.name }} - Created at: {{ habit.created_at }}</li>
       <div class="card">
         <a href="{% url 'detail' habit.id %}">
           <div class="container">
             <p><h2>{{ habit.name }}</h2></p>
-            <p>Status: {% if habit.status %}Active{% else %}Paused{% endif %}</p>
+            <p>Status: Active</p>
             <p>Category: {{ habit.category }}</p>  
           </div>
         </a>
       </div>
+      {% endif %}
   {% endfor %}
 </ul>
+
+<h2>Inactive Habits</h2>
+<ul>
+    {% for habit in habits %}
+      {% if habit.status and not habit.paused %}
+        <li>{{ habit.name }} - Created at: {{ habit.created_at }}</li>
+        <div class="card">
+          <a href="{% url 'detail' habit.id %}">
+            <div class="container">
+              <p><h2>{{ habit.name }}</h2></p>
+              <p>Status: Active</p>
+              <p>Category: {{ habit.category }}</p>  
+            </div>
+          </a>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </ul>
+  
 
 {% endblock %}

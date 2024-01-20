@@ -19,4 +19,14 @@
         </div>
       </div>
 
+      <div class="col s6">
+        <form action="{% url 'event_new' %}" method="POST">
+          {% csrf_token %}
+          {{ event_form.as_p }}
+          <input type="submit" class="btn" value="Add Event">
+        </form>
+        <br>
+      </div>
+        
+
 {% endblock %}

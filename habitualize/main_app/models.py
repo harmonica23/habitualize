@@ -35,6 +35,8 @@ class Event(models.Model):
     title = models.CharField(max_length=200)
     start_time = models.DateTimeField()
     end_time = models.DateTimeField()
+    habit = models.ForeignKey(Habit, on_delete=models.CASCADE, null=True, default=None)
+
     def __str__(self):
         return self.title
     @property

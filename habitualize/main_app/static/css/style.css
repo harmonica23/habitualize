@@ -44,6 +44,7 @@ main {
     justify-content: center;
     flex-direction: column;
     text-align: center;
+    margin-top: 3vmin;
 }
 
 .form_area {
@@ -95,7 +96,8 @@ input {
 
 .form_style:focus,
 .btn:focus,
-input {
+input,
+#id_category {
     transform: translateY(4px);
     box-shadow: 1px 2px 0px 0px #E99F4C;
 }

@@ -1,9 +1,25 @@
+from django.contrib.auth.forms import UserCreationForm
 from django import forms
+from django.contrib.auth.models import User  # Import User model
 from .models import Habit
-# class YourForm(forms.Form):
-#     usernamename = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-style'}))
-#     password = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-style'}))
-#     passwordconfirmation = forms.CharField(widget=forms.PasswordConfirmationInput(attrs={'class': 'form-style'}))
+
+class RegisterUserForm(UserCreationForm):
+    username = forms.CharField(label='Create User Name', widget=forms.TextInput(attrs={'class': ['form_style', 'sub_title', 'form_area', 'form_group']}))
+    password1 = forms.CharField(label='Create Password', widget=forms.PasswordInput(attrs={'class': ['form_style', 'sub_title', 'form_area', 'form_group']}))
+    password2 = forms.CharField(label='Re-enter Password', widget=forms.PasswordInput(attrs={'class': ['form_style', 'sub_title', 'form_area', 'form_group']}))
+
+    class Meta:
+        model = User
+        fields = ('username',)
+
+    def __init__(self, *args, **kwargs):
+        super(RegisterUserForm, self).__init__(*args, **kwargs)
+
+        self.fields['username'].widget.attrs['class'] = ['form_style', 'sub_title', 'form_area', 'form_group']  
+        self.fields['password1'].widget.attrs['class'] = ['form_style', 'sub_title', 'form_area', 'form_group'] 
+        self.fields['password2'].widget.attrs['class'] = ['form_style', 'sub_title', 'form_area', 'form_group'] 
+
+
 
 class HabitForm(forms.ModelForm):
     class Meta:

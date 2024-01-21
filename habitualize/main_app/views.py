@@ -5,17 +5,18 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.list import ListView
+from django.http import HttpResponse
 from .models import Habit, Event
 from django.urls import reverse
 from .utils import Calendar
 from django.utils.safestring import mark_safe
 from datetime import date, datetime, timedelta
 from .forms import HabitForm, RegisterUserForm, EventForm
+
 from django.utils import timezone
 import calendar
 from django.shortcuts import get_object_or_404
 from django.http import HttpResponseRedirect
-
 
 @login_required
 def habits_index(request):
@@ -136,3 +137,28 @@ def event(request, event_id=None):
         form.save()
         return HttpResponseRedirect(reverse('cal:calendar'))
     return render(request, 'cal/event.html', {'form': form})
+
+
+def get_forismatic_quote():
+    url = "http://api.forismatic.com/api/1.0/"
+    params = {
+        "method": "getQuote",
+        "format": "json",
+        "lang": "en",
+    }
+
+    try:
+        response = requests.get(url, params=params)
+        response.raise_for_status()
+        data = response.json()
+        return data["quoteText"]
+    except requests.exceptions.RequestException as e:
+        print(f"Error fetching quote: {e}")
+        return None
+
+def random_quote_view(request):
+    quote = get_forismatic_quote()
+  
+    return render(request, 'random_quote.html', {'random_quote': quote})
+
+

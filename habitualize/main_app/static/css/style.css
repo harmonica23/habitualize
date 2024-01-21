@@ -37,8 +37,15 @@ main {
     background-color: rgba(255, 255, 255, 0.5); 
 }
 
+/* misc styles */
+.card, h1 {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
 /* sign up form start */
-.container {
+.container, .card {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -47,7 +54,7 @@ main {
     margin-top: 3vmin;
 }
 
-.form_area {
+.form_area, .card {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -75,6 +82,7 @@ main {
 
 .form_group,
 .submit-btn,
+.addevt-btn,
 label,
 input {
     display: flex;
@@ -102,7 +110,7 @@ input,
     box-shadow: 1px 2px 0px 0px #E99F4C;
 }
 
-.signup-btn, .login-btn, .submit-btn {
+.signup-btn, .login-btn, .submit-btn, .addevt-btn {
     padding: 15px;
     margin: 25px 0px;
     width: 290px;
@@ -127,14 +135,15 @@ input,
 label,
 p,
 .signup-btn,
-.submit-btn {
+.submit-btn,
+.addevt-btn {
     margin: auto;
 }
 /* sign up form end */
 
 
 /* login button make smaller */
-.login-btn, .submit-btn {
+.login-btn, .submit-btn, .addevt-btn {
     padding: 0;
     max-width: 15vmin;
 }

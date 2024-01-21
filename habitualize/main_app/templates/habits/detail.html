@@ -17,12 +17,12 @@
 
 <div class="container">
   <div class="form_area">
-    <p class="title">LOG IN</p>
+    <p class="title">Add Event</p>
 
     <form action="{% url 'event_new' %}" method="POST">
       {% csrf_token %}
       {{ event_form.as_p }}
-      <button type="submit" class="addevt-btn">Add Event</button>
+      <button type="submit" class="addevt-btn">SAVE</button>
     </form>
     <br>
 

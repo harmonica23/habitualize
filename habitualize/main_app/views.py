@@ -12,11 +12,11 @@ from .utils import Calendar
 from django.utils.safestring import mark_safe
 from datetime import date, datetime, timedelta
 from .forms import HabitForm, RegisterUserForm, EventForm
-
 from django.utils import timezone
 import calendar
 from django.shortcuts import get_object_or_404
 from django.http import HttpResponseRedirect
+import requests
 
 @login_required
 def habits_index(request):

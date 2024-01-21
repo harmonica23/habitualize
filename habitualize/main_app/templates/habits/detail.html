@@ -1,32 +1,33 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1>Habit Details</h1>
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h3>Habit Details</h3>
+    <h5 class="card-title">Name: {{ habit.name }}</h5>
+    <h6 class="card-subtitle mb-2 text-body-secondary">Goal: {{ habit.goal }}</h6>
+    <h6 class="card-subtitle mb-2 text-body-secondary">Make/Break: {{ habit.make_or_break }}</h6>
+    <h6 class="card-subtitle mb-2 text-body-secondary">Status: {% if habit.status %}Active{% else %}Inactive{% endif %}
+    </h6>
+    <h6 class="card-subtitle mb-2 text-body-secondary">Category: {{ habit.category }}</h6>
+    <a href="{% url 'habits_update' habit.id %}">Edit</a>
+    <a href="{% url 'habits_delete' habit.id %}">Delete</a>
+  </div>
+</div>
 
-<div class="row">
-    <div class="col s6">
-      <div class="card">
-        <div class="card-content">
-          <p>Name: {{ habit.name }}</p>
-          <p>Goal: {{ habit.goal }}</p>
-          <p>Make/Break: {{ habit.make_or_break }}</p>
-          <p>Status: {% if habit.status %}Active{% else %}Inactive{% endif %}</p>
-          <p>Category: {{ habit.category }}</p> 
-        </div>
-        <div class="card-action">
-          <a href="{% url 'habits_update' habit.id %}">Edit</a>
-          <a href="{% url 'habits_delete' habit.id %}">Delete</a>
-        </div>
-      </div>
+<div class="container">
+  <div class="form_area">
+    <p class="title">Add Event</p>
 
-      <div class="col s6">
-        <form action="{% url 'event_new' %}" method="POST">
-          {% csrf_token %}
-          {{ event_form.as_p }}
-          <input type="submit" class="btn" value="Add Event">
-        </form>
-        <br>
-      </div>
-        
+    <form action="{% url 'event_new' %}" method="POST">
+      {% csrf_token %}
+      {{ event_form.as_p }}
+      <button type="submit" class="addevt-btn">SAVE</button>
+    </form>
+    <br>
+
+  </div>
+</div>
+
 
 {% endblock %}

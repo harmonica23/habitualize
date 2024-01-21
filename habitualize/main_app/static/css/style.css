@@ -38,9 +38,10 @@ main {
 }
 
 /* misc styles */
-.card, h1 {
+.card, h1, .order-by {
     margin-left: auto;
     margin-right: auto;
+    text-align: center;
 }
 
 .status-radio-group {
@@ -90,8 +91,6 @@ main {
 }
 
 .form_group,
-.submit-btn,
-.addevt-btn,
 label,
 input {
     display: flex;
@@ -119,9 +118,9 @@ input,
     box-shadow: 1px 2px 0px 0px #E99F4C;
 }
 
-.signup-btn, .login-btn, .submit-btn, .addevt-btn {
+.signup-btn, .login-btn, .submit-btn, .addevt-btn, .prev-month-left, .prev-month-right {
     padding: 15px;
-    margin: 25px 0px;
+    margin: auto;
     width: 290px;
     font-size: 15px;
     background: #DE5499;
@@ -142,17 +141,14 @@ input,
 
 input,
 label,
-p,
-.signup-btn,
-.submit-btn,
-.addevt-btn {
+p   {
     margin: auto;
 }
 /* sign up form end */
 
 
 /* login button make smaller */
-.login-btn, .submit-btn, .addevt-btn {
+.login-btn, .submit-btn, .addevt-btn, .signup-btn {
     padding: 0;
     max-width: 15vmin;
 }
@@ -161,12 +157,37 @@ p,
     box-shadow: none !important;
 }
 
+/* calendar page style */
 
+.prev-month-left {
+    float: left;
+    padding: 2vmin;
+    max-width: 25vmin;
+    text-align: center;
+    margin: 1vmin;
+    text-decoration: none;
+    color: #264143;
+} 
 
+.prev-month-right {
+    float: right;
+    padding: 2vmin;
+    max-width: 25vmin;
+    text-align: center;
+    margin: 1vmin;
+    text-decoration: none;
+    color: #264143;
+}
+
+.calendar {
+    margin-left: 50%;
+    margin-right: 50%;
+}
 
 /* RACHEL css start */
 
-.left {
+
+/* .left {
     float: left;
 }
 
@@ -198,7 +219,7 @@ p,
     background: none;
     padding: 5px;
     width: 100%;
-}
+} */
 /* rachel css end */
 
 

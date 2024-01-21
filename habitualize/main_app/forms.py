@@ -25,6 +25,13 @@ class RegisterUserForm(UserCreationForm):
 class HabitForm(forms.ModelForm):
     new_category = forms.CharField(max_length=50, required=False, label='New Category')
 
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        existing_choices = list(self.fields['category'].choices)
+        default_label = ('', 'Select')
+        choices_with_default = [default_label] + existing_choices
+        self.fields['category'].choices = choices_with_default
+
     class Meta:
         model = Habit
         fields = ['name', 'goal', 'make_or_break', 'category', 'new_category', 'status']

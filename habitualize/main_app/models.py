@@ -32,6 +32,7 @@ class Mood(models.Model):
   mood = object
 
 class Event(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.CharField(max_length=200)
     start_time = models.DateTimeField()
     end_time = models.DateTimeField()

@@ -9,10 +9,14 @@ from .models import Habit, Event
 from django.urls import reverse
 from .utils import Calendar
 from django.utils.safestring import mark_safe
-from datetime import datetime
+from datetime import date, datetime, timedelta
 from .forms import HabitForm, RegisterUserForm, EventForm
+from django.utils import timezone
+import calendar
+from django.shortcuts import get_object_or_404
+from django.http import HttpResponseRedirect
 
-# Create your views here.
+
 @login_required
 def habits_index(request):
   order_by = request.GET.get('order_by', 'created_at')
@@ -84,26 +88,27 @@ def signup(request):
 class CalendarView(ListView):
     model = Event
     template_name = 'calendar.html'
-
+    def get_queryset(self):
+        return Event.objects.filter(user=self.request.user)
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-
-        # use today's date for the calendar
-        d = get_date(self.request.GET.get('day', None))
-
-        # Instantiate our calendar class with today's year and date
-        cal = Calendar(d.year, d.month)
-
-        # Call the formatmonth method, which returns our calendar as a table
-        html_cal = cal.formatmonth(withyear=True)
-        context['calendar'] = mark_safe(html_cal)
+        user = getattr(self.request, 'user', None)
+        if user is not None:
+          d = get_date(self.request.GET.get('day', None))
+          print(d)
+          cal = Calendar(d.year, d.month)
+          html_cal = cal.formatmonth(withyear=True)
+          context['calendar'] = mark_safe(html_cal)
+        else:
+          context['calendar'] = "User not authenticated"
         return context
+
 
 def get_date(req_day):
     if req_day:
         year, month = (int(x) for x in req_day.split('-'))
         return date(year, month, day=1)
-    return datetime.today()
+    return timezone.now().date()
 
 def prev_month(d):
     first = d.replace(day=1)
@@ -118,6 +123,7 @@ def next_month(d):
     month = 'month=' + str(next_month.year) + '-' + str(next_month.month)
     return month
 
+@login_required
 def event(request, event_id=None):
     instance = Event()
     if event_id:

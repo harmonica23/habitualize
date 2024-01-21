@@ -16,8 +16,9 @@
           <div id="id_new_category_row" style="display: none">
             {{ form.new_category.label_tag }} {{ form.new_category }}
           </div>
-          {{ form.status.label_tag }} {{ form.status }}<br /> {# Moved 'status' here #}
-          <input type="submit" value="Submit" class="submit-btn" />
+          <br>
+          {{ form.status.label_tag }} {{ form.status }}<br /> 
+          <button type="submit" class="submit-btn">SUBMIT</button>
         </form>
         <script>
           $("#id_category").on("change", function () {

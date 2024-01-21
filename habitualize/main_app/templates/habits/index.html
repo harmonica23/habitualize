@@ -2,50 +2,57 @@
 {% block content %}
 
 <h1>Habits List</h1>
-<p>Order by:
+<div>
+  Order by:
   <a href="?order_by=created_at">Created at</a>
+  or
   <a href="?order_by=category">Category</a>
   {% if current_order == 'created_at' %}
-      <a href="?order_by=-created_at"></a>
+  <a href="?order_by=-created_at"></a>
   {% else %}
-      <a href="?order_by=created_at"></a>
+  <a href="?order_by=created_at"></a>
   {% endif %}
-</p>
+</div>
 
-<h2>Active Habits</h2>
-<ul>
-  {% for habit in habits %}
-    {% if habit.status and not habit.Inactive %}
-      <li>{{ habit.name }} - Created at: {{ habit.created_at }}</li>
-      <div class="card">
+
+<div class="container">
+  <div class="form_area">
+    <h3>Active Habits</h3>
+    <div class="card" style="width: 30rem;">
+      <div class="card-body">
+        {% for habit in habits %}
+        {% if habit.status and not habit.Inactive %}
+        <h6 class="card-subtitle mb-2 text-body-secondary">{{ habit.name }} - Created at: {{ habit.created_at }}</h6>
         <a href="{% url 'detail' habit.id %}">
-          <div class="container">
-            <p><h2>{{ habit.name }}</h2></p>
-            <p>Status: Active</p>
-            <p>Category: {{ habit.category }}</p>  
-          </div>
+          <h5 class="card-title">{{ habit.name }}</h5>
+          <h6 class="card-subtitle mb-2 text-body-secondary">Status: Active</h6>
+          <h6 class="card-subtitle mb-2 text-body-secondary">Category: {{ habit.category }}</h6>
         </a>
       </div>
-    {% endif %}
-  {% endfor %}
-</ul>
+      {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</div>
 
-<h2>Inactive Habits</h2>
-<ul>
-  {% for habit in habits %}
-    {% if not habit.status or habit.Inactive %}
-      <li>{{ habit.name }} - Created at: {{ habit.created_at }}</li>
-      <div class="card">
-        <a href="{% url 'detail' habit.id %}">
-          <div class="container">
-            <p><h2>{{ habit.name }}</h2></p>
-            <p>Status: Inactive</p>
-            <p>Category: {{ habit.category }}</p>  
-          </div>
-        </a>
+  <div class="container">
+    <div class="form_area">
+      <h3>Inactive Habits</h3>
+      <div class="card" style="width: 30rem;">
+        <div class="card-body">
+          {% for habit in habits %}
+          {% if not habit.status or habit.Inactive %}
+          <h6 class="card-subtitle mb-2 text-body-secondary">{{ habit.name }} - Created at: {{ habit.created_at }}</h6>
+          <a href="{% url 'detail' habit.id %}">
+            <h5 class="card-title">{{ habit.name }}</h5>
+            <h6 class="card-subtitle mb-2 text-body-secondary">Status: Inactive</h6>
+            <h6 class="card-subtitle mb-2 text-body-secondary">Category: {{ habit.category }}</h6>
+          </a>
+        </div>
+        {% endif %}
+        {% endfor %}
       </div>
-    {% endif %}
-  {% endfor %}
-</ul>
+    </div>
+  </div>
 
-{% endblock %}
+    {% endblock %}

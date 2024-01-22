@@ -7,7 +7,7 @@
     <h5 class="card-title">Name: {{ habit.name }}</h5>
     <h6 class="card-subtitle mb-2 text-body-secondary">Goal: {{ habit.goal }} {{ habit.frequency }} per {{ habit.unit }}</h6>
     <h6 class="card-subtitle mb-2 text-body-secondary">Make/Break: {{ habit.make_or_break }}</h6>
-    <h6 class="card-subtitle mb-2 text-body-secondary">Status: {% if habit.status %}Active{% else %}Inactive{% endif %}
+    <h6 class="card-subtitle mb-2 text-body-secondary">Status: {% if habit.status %}Active{% else %}Inactive{% endif %}</h6>
     <h6 class="card-subtitle mb-2 text-body-secondary">Category: {{ habit.category }}</h6>
     <a href="{% url 'habits_update' habit.id %}">Edit</a>
     <a href="{% url 'habits_delete' habit.id %}">Delete</a>
@@ -20,13 +20,14 @@
 
     <form action="{% url 'event_new' habit_id=habit.id habit_name=habit.name %}" method="POST">
       {% csrf_token %}
-      {{ event_form.as_p }}
+      {{ event_form.start_time.label_tag }} {{ event_form.start_time }}<br />
+      {{ event_form.end_time.label_tag }} {{ event_form.end_time }}<br />
       <button type="submit" class="addevt-btn">SAVE</button>
     </form>
+    
     <br>
 
   </div>
 </div>
-
 
 {% endblock %}

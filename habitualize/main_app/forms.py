@@ -1,7 +1,7 @@
 from django.contrib.auth.forms import UserCreationForm
 from django import forms
 from django.contrib.auth.models import User
-from .models import Habit, Event
+from .models import Habit, Event, Journal
 from django.forms import ModelForm, DateInput
 
 
@@ -81,7 +81,6 @@ class HabitForm(forms.ModelForm):
         if not category and not new_category:
             raise forms.ValidationError('Please select a category or enter a new one.')
         return cleaned_data
-
 
 
 class EventForm(ModelForm):

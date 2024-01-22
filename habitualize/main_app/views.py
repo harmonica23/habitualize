@@ -89,17 +89,16 @@ def signup(request):
 class CalendarView(ListView):
     model = Event
     template_name = 'calendar.html'
-    def get_queryset(self):
-        return Event.objects.filter(user=self.request.user)
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         user = getattr(self.request, 'user', None)
         if user is not None:
           d = get_date(self.request.GET.get('day', None))
-          print(d)
           cal = Calendar(d.year, d.month)
-          html_cal = cal.formatmonth(withyear=True)
+          html_cal = cal.formatmonth(withyear=True, user_id=self.request.user)
           context['calendar'] = mark_safe(html_cal)
+          context['prev_month'] = prev_month(d)
+        #  context['next_month'] = next_month(d)
         else:
           context['calendar'] = "User not authenticated"
         return context
@@ -118,6 +117,7 @@ def prev_month(d):
     return month
 
 def next_month(d):
+    print(calendar.day_name)
     days_in_month = calendar.monthrange(d.year, d.month)[1]
     last = d.replace(day=days_in_month)
     next_month = last + timedelta(days=1)

@@ -24,17 +24,51 @@ class RegisterUserForm(UserCreationForm):
 
 class HabitForm(forms.ModelForm):
     new_category = forms.CharField(max_length=50, required=False, label='New Category')
+    category_choices = [
+        ('Health', 'Health'),
+        ('Fitness', 'Fitness'),
+        ('Personal Development', 'Personal Development'),
+        ('Relationships', 'Relationships'),
+        ('Other', 'Other'),
+    ]
+    make_or_break_choices = [
+        ('Make', 'Make'),
+        ('Break', 'Break'),
+    ]
+    goal_frequency_choices = [
+        ('Days', 'Days'),
+        ('Weeks', 'Weeks'),
+        ('Months', 'Months'),
+        ('Years', 'Years'),
+        ('Hours', 'Hours'),
+        ('Minutes', 'Minutes'),
+        ('Seconds', 'Seconds'),
+        ('Times', 'Times'),
+    ]
+    goal_unit_choices = [
+        ('Day', 'Day'),
+        ('Week', 'Week'),
+        ('Month', 'Month'),
+        ('Year', 'Year'),
+        ('Hour', 'Hour'),
+    ]
+
+    goal = forms.IntegerField()
+    frequency = forms.ChoiceField(choices=goal_frequency_choices)
+    unit = forms.ChoiceField(choices=goal_unit_choices)
+    make_or_break = forms.ChoiceField(choices=make_or_break_choices)
+    category = forms.ChoiceField(choices=category_choices)
 
     def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        existing_choices = list(self.fields['category'].choices)
-        default_label = ('', 'Select')
-        choices_with_default = [default_label] + existing_choices
-        self.fields['category'].choices = choices_with_default
+           super().__init__(*args, **kwargs)
+           existing_choices = list(self.fields['category'].choices)
+           default_label = ('', 'Select')
+           choices_with_default = [default_label] + existing_choices
+           self.fields['category'].choices = choices_with_default
 
     class Meta:
         model = Habit
-        fields = ['name', 'goal', 'make_or_break', 'category', 'new_category', 'status']
+        fields = ['name', 'goal', 'unit', 'frequency', 'make_or_break', 'category', 'new_category', 'status']
         widgets = {
             'status': forms.RadioSelect(choices=((True, 'Active'), (False, 'Inactive')))
         }
@@ -46,8 +80,8 @@ class HabitForm(forms.ModelForm):
 
         if not category and not new_category:
             raise forms.ValidationError('Please select a category or enter a new one.')
-
         return cleaned_data
+
 
 
 class EventForm(ModelForm):

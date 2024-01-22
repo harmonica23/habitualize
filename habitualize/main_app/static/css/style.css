@@ -125,8 +125,13 @@ input,
     box-shadow: 3px 3px 0px 0px #f1be93;
 }
 
-.btn:hover {
+.signup-btn:hover,
+.login-btn:hover,
+.submit-btn:hover,
+.addevt-btn:hover,
+a:hover {
     opacity: .9;
+    color: brown !important;
 }
 
 .link {
@@ -228,7 +233,7 @@ ul {
 .card,
 .habit-item {
     color: rgb(203, 152, 136); 
-    padding: 10px;
+    padding: 1vmin;
 }
 
 .card a {

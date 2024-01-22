@@ -113,7 +113,7 @@ input,
 .submit-btn,
 .addevt-btn,
 .prev-month-left,
-.prev-month-right {
+.prev-month-right{
     padding: 15px;
     margin: auto;
     width: 290px;
@@ -130,7 +130,7 @@ input,
 
 .link {
     font-weight: 800;
-    color: #264143;
+    color: rgb(203, 152, 135);
     padding: 5px;
 }
 
@@ -223,3 +223,21 @@ ul {
     padding: 0px 5px 0px 20px;
 }
 
+/* Habit Form */
+.card,
+.habit-item {
+    color: rgb(203, 152, 136); 
+    padding: 10px;
+}
+
+.card a {
+    color: rgb(170, 118, 103); 
+}
+
+.order-by {
+    color: rgb(203, 152, 136);
+}
+
+.order-by a {
+    color: rgb(174, 105, 116); 
+}

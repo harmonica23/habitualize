@@ -31,7 +31,23 @@ def habits_index(request):
   })
 
 def home(request):
-  return render(request, 'home.html')
+    url = "http://api.forismatic.com/api/1.0/"
+    params = {
+        "method": "getQuote",
+        "format": "json",
+        "lang": "en",
+    }
+
+    try:
+        response = requests.get(url, params=params)
+        response.raise_for_status()
+        data = response.json()
+        return render(request, 'home.html', {'quote': data['quoteText']})
+    except requests.exceptions.RequestException as e:
+        print(f"Error fetching quote: {e}")
+        return None
+    
+    
 
 @login_required
 def calendar(request):
@@ -139,29 +155,3 @@ def event(request, habit_id, habit_name):
     return render(request, 'cal/event.html', {'form': form})
 
 
-def get_forismatic_quote():
-    url = "http://api.forismatic.com/api/1.0/"
-    params = {
-        "method": "getQuote",
-        "format": "json",
-        "lang": "en",
-    }
-
-    try:
-        response = requests.get(url, params=params)
-        response.raise_for_status()
-        data = response.json()
-        return data["quoteText"]
-    except requests.exceptions.RequestException as e:
-        print(f"Error fetching quote: {e}")
-        return None
-
-def random_quote(request):
-    # Call the function to get a Forismatic quote
-    quote = get_forismatic_quote()
-
-    # Display the quote if available
-    if quote:
-        return HttpResponse(f"Random Quote: {quote}")
-    else:
-        return HttpResponse("Failed to retrieve a quote.")

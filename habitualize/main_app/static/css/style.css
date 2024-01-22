@@ -41,6 +41,14 @@ h1,
     margin-right: 1vmin;
 }
 
+.quote {
+    font-family: 'Seaweed Script', cursive;
+    text-align: center;
+    font-size: 6vmin; /* Adjust the font size to your preference */
+    color: #264143; /* Set the color to your desired color */
+    margin-top: 20vmin; /* Adjust the margin-top to create space at the top */
+}
+
 
 /* form and card styling */
 .container,

@@ -24,23 +24,26 @@ main {
     margin-top: auto !important;
     padding-top: 2vmin;
 }
-/* overall style end */
+
 
 
 /* misc styles */
-.card, h1, .order-by {
+.card,
+h1,
+.order-by {
     margin-left: auto;
     margin-right: auto;
     text-align: center;
 }
 
 .status-radio-group {
-    margin-right: 1vmin; /* Adjust the margin as needed */
+    margin-right: 1vmin;
 }
 
 
 /* form and card styling */
-.container, .card {
+.container,
+.card {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -49,7 +52,8 @@ main {
     margin-top: 3vmin;
 }
 
-.form_area, .card {
+.form_area,
+.card {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -59,7 +63,7 @@ main {
     width: auto;
     border: 2px solid #264143;
     border-radius: 20px;
-    box-shadow: 3px 4px 0px 1px #E99F4C;
+    box-shadow: 3px 4px 0px 1px #f1be93;
     padding: 5vmin;
 }
 
@@ -70,7 +74,8 @@ main {
     margin-top: 20px;
 }
 
-.sub_title, label {
+.sub_title,
+label {
     font-weight: 600;
     margin: 5px 0;
 }
@@ -88,7 +93,7 @@ input {
 input {
     outline: none;
     border: 2px solid #264143;
-    box-shadow: 3px 4px 0px 1px #E99F4C;
+    box-shadow: 3px 4px 0px 1px #f1be93;
     width: 290px;
     padding: 12px 10px;
     border-radius: 4px;
@@ -100,18 +105,23 @@ input {
 input,
 #id_category {
     transform: translateY(4px);
-    box-shadow: 1px 2px 0px 0px #E99F4C;
+    box-shadow: 1px 2px 0px 0px #f1be93;
 }
 
-.signup-btn, .login-btn, .submit-btn, .addevt-btn, .prev-month-left, .prev-month-right {
+.signup-btn,
+.login-btn,
+.submit-btn,
+.addevt-btn,
+.prev-month-left,
+.prev-month-right {
     padding: 15px;
     margin: auto;
     width: 290px;
     font-size: 15px;
-    background: #DE5499;
+    background: #d49584;
     border-radius: 10px;
     font-weight: 800;
-    box-shadow: 3px 3px 0px 0px #E99F4C;
+    box-shadow: 3px 3px 0px 0px #f1be93;
 }
 
 .btn:hover {
@@ -126,56 +136,43 @@ input,
 
 input,
 label,
-p   {
+p {
     margin: auto;
 }
 
 
 
 /* login button make smaller */
-.login-btn, .submit-btn, .addevt-btn, .signup-btn {
+.login-btn,
+.submit-btn,
+.addevt-btn,
+.signup-btn {
     padding: 0;
     max-width: 15vmin;
 }
 
-#id_status_0, #id_status_1 {
+#id_status_0,
+#id_status_1 {
     box-shadow: none !important;
 }
 
+
+
 /* calendar page style */
+.prev-month-left, .prev-month-right {
+    padding: 2vmin;
+    max-width: 25vmin;
+    text-align: center;
+    margin: 1vmin;
+    text-decoration: none;
+    color: #264143;
+}
+
 .prev-month-left {
     float: left;
-    padding: 2vmin;
-    max-width: 25vmin;
-    text-align: center;
-    margin: 1vmin;
-    text-decoration: none;
-    color: #264143;
-} 
+}
 
 .prev-month-right {
-    float: right;
-    padding: 2vmin;
-    max-width: 25vmin;
-    text-align: center;
-    margin: 1vmin;
-    text-decoration: none;
-    color: #264143;
-}
-
-.calendar {
-    margin-left: auto;
-    margin-right: auto;
-}
-
-/* RACHEL css start */
-
-
-.left {
-    float: left;
-}
-
-.right {
     float: right;
 }
 
@@ -194,39 +191,35 @@ p   {
     width: 98%;
     margin: auto;
     font-size: 13px;
-  }
-  
-  .calendar tr, .calendar td {
+}
+
+.calendar tr,
+.calendar td {
     border: 1px solid black;
-  }
-  
-  .calendar th {
+}
+
+.calendar th {
     padding: 10px;
     text-align: center;
     font-size: 18px;
-  }
-  
-  .calendar td {
+}
+
+.calendar td {
     width: 200px;
     height: 150px;
     padding: 20px 0px 0px 5px;
-  }
-  
-  .month {
+}
+
+.month {
     font-size: 25px;
-  }
-  
-  .date {
+}
+
+.date {
     font-size: 16px;
-  }
-  
-  ul {
+}
+
+ul {
     height: 100%;
     padding: 0px 5px 0px 20px;
-  }
-  
-  a {
-    color: #17a2b8;
-  } 
-/* rachel css end */
+}
 

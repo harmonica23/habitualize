@@ -25,8 +25,11 @@
         <h6 class="card-subtitle mb-2 text-body-secondary">{{ habit.name }} - Created at: {{ habit.created_at }}</h6>
         <a href="{% url 'detail' habit.id %}">
           <h5 class="card-title">{{ habit.name }}</h5>
-          <h6 class="card-subtitle mb-2 text-body-secondary">Status: Active</h6>
           <h6 class="card-subtitle mb-2 text-body-secondary">Category: {{ habit.category }}</h6>
+          <h6 class="card-subtitle mb-2 text-body-secondary">Type: {{ habit.make_or_break }} </h6>
+          <h6 class="card-subtitle mb-2 text-body-secondary">Goal: {{ habit.goal }}</h6>
+          <h6 class="card-subtitle mb-2 text-body-secondary">Frequency: {{ habit.frequency }} per {{ habit.unit }} </h6>
+          <h6 class="card-subtitle mb-2 text-body-secondary">Status: Active</h6>
         </a>
       </div>
       {% endif %}

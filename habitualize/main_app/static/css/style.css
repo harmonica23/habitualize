@@ -6,7 +6,7 @@
 }
 
 body {
-    background-image: url('../images/growing-flower.jpg');
+    background-image: url('../images/simple_background.jpg');
     display: flex;
     background-size: cover;
     background-position: center;
@@ -16,13 +16,12 @@ body {
     height: 100vh;
 }
 
-
 main {
     flex: 1;
 }
 
 .footer {
-    margin-top: auto;
+    margin-top: auto !important;
     padding-top: 2vmin;
 }
 /* overall style end */
@@ -165,8 +164,8 @@ p   {
 }
 
 .calendar {
-    margin-left: 50%;
-    margin-right: 50%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* RACHEL css start */

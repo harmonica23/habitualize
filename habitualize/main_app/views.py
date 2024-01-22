@@ -45,7 +45,8 @@ def home(request):
         return render(request, 'home.html', {'quote': data['quoteText']})
     except requests.exceptions.RequestException as e:
         print(f"Error fetching quote: {e}")
-        return None
+        # Return an HttpResponse with an error message
+        return render(request, 'home.html', {'quote': 'Error fetching quote. Please try again later.'})
     
     
 

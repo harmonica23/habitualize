@@ -4,12 +4,30 @@
 
 <h1>Edit <span class="teal-text">{{ object.name }}</span></h1>
 
+<div class="container">
+  <div class="form_area">
 <form action="{% url 'habits_update' pk=object.pk %}" method="POST" class="habits-form"> 
-    {% csrf_token %}
-    <table>
-        {{ form.as_table }}
-    </table>
-  
-    <input type="submit" value="Submit" class="btn">
-  </form>
+
+  {% csrf_token %}
+          {{ form.name.label_tag }} {{ form.name }}<br />
+          {{ form.goal.label_tag }} {{ form.goal }}<br />
+          <div style="display: flex; align-items: center;">
+            {{ form.frequency.label_tag }} {{ form.frequency }} &nbsp;&nbsp;Per&nbsp;&nbsp;{{ form.unit }}
+          </div><br />
+          <div style="display: flex; align-items:flex-start; ">
+            {{ form.make_or_break.label_tag }} {{ form.make_or_break }}
+          </div><br />
+          <div style="display: flex; align-items:flex-start; ">
+            {{ form.category.label_tag }} {{ form.category }}
+          </div><br />
+          <div id="id_new_category_row" style="display: none;">
+            {{ form.new_category.label_tag }} {{ form.new_category }}
+          </div><br />
+          {{ form.status.label_tag }} {{ form.status }}
+          <button type="submit" class="submit-btn">Submit</button>
+        </form>
+</div>
+</div>
+
 {% endblock %}
+

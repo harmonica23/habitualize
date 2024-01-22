@@ -17,9 +17,12 @@
           <div style="display: flex; align-items:flex-start; ">
             {{ form.make_or_break.label_tag }} {{ form.make_or_break }}
           </div><br />
+          <div style="display: flex; align-items:flex-start; ">
+            {{ form.category.label_tag }} {{ form.category }}
+          </div><br />
           <div id="id_new_category_row" style="display: none;">
             {{ form.new_category.label_tag }} {{ form.new_category }}
-          </div>
+          </div><br />
           {{ form.status.label_tag }} {{ form.status }}
           <button type="submit" class="submit-btn">Submit</button>
         </form>

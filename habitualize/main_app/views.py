@@ -18,11 +18,6 @@ from django.shortcuts import get_object_or_404
 from django.http import HttpResponseRedirect
 import requests
 
-@login_required
-def Journal(request):
-   model = Journal
-   fields = '__all__'
-   return render(request, 'journal.html')
 
 
 
@@ -64,6 +59,7 @@ def home(request):
 def calendar(request):
   return render(request, 'calendar.html')
 
+
 @login_required
 def habits_detail(request, habit_id):
   habit = Habit.objects.get(id=habit_id)
@@ -72,6 +68,15 @@ def habits_detail(request, habit_id):
     'habit': habit,
     'event_form':event_form
   })
+
+
+
+class Journal(LoginRequiredMixin, CreateView):
+   model = Journal
+   fields = '__all__'
+  
+
+ 
 
 class HabitCreate(LoginRequiredMixin, CreateView):
     model = Habit

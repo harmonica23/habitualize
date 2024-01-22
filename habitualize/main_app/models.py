@@ -31,7 +31,7 @@ class Habit(models.Model):
 
 class Journal(models.Model):
   entry = models.CharField(max_length=500)
-  mood = models.CharField(max_length=500)
+
   habit = models.ManyToManyField(Habit)
 
 class Mood(models.Model):

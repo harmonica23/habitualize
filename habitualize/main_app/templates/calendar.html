@@ -2,8 +2,9 @@
 {% block content %}
 
 <h1>Habit Calendar</h1>
-<a class="prev-month-left" href="{'% url 'cal:calendar' %}?{{ prev_month }}"> Prior Month </a>
-<a class="prev-month-right" href="{'% url 'cal:calendar' %}?{{ next_month }}"> Next Month </a>
+<a class="prev-month-left" href="{% url 'prev_month_calendar' %}">Prior Month</a>
+<a class="prev-month-right" href="{% url 'next_month_calendar' %}">Next Month</a>
+
 
 
 {{ current_date }}

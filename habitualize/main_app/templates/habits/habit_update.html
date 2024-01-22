@@ -4,11 +4,12 @@
 
 <h1>Edit <span class="teal-text">{{ object.name }}</span></h1>
 
-  <form action="{% url 'habits_update' pk=object.pk %}" method="POST">
+<form action="{% url 'habits_update' pk=object.pk %}" method="POST" class="habits-form"> 
     {% csrf_token %}
     <table>
-      {{ form.as_table }}
+        {{ form.as_table }}
     </table>
-    <input type="submit" value="Submit" class="btn">
-  </form>
+    <input type="submit" value="Submit!" class="btn">
+</form>
+
 {% endblock %}

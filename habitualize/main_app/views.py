@@ -6,7 +6,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.list import ListView
 from django.http import HttpResponse
-from .models import Habit, Event
+from .models import Habit, Event, Journal
 from django.urls import reverse
 from .utils import Calendar
 from django.utils.safestring import mark_safe
@@ -17,6 +17,9 @@ import calendar
 from django.shortcuts import get_object_or_404
 from django.http import HttpResponseRedirect
 import requests
+
+
+
 
 @login_required
 def habits_index(request):
@@ -45,13 +48,18 @@ def home(request):
         return render(request, 'home.html', {'quote': data['quoteText']})
     except requests.exceptions.RequestException as e:
         print(f"Error fetching quote: {e}")
-        return None
+        # Return an HttpResponse with an error message
+        return render(request, 'home.html', {'quote': 'Error fetching quote. Please try again later.'})
     
+
+
+  
     
 
 @login_required
 def calendar(request):
   return render(request, 'calendar.html')
+
 
 @login_required
 def habits_detail(request, habit_id):
@@ -61,6 +69,15 @@ def habits_detail(request, habit_id):
     'habit': habit,
     'event_form':event_form
   })
+
+
+
+class Journal(LoginRequiredMixin, CreateView):
+   model = Journal
+   fields = '__all__'
+  
+
+ 
 
 class HabitCreate(LoginRequiredMixin, CreateView):
     model = Habit

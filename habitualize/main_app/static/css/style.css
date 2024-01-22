@@ -6,7 +6,7 @@
 }
 
 body {
-    background-image: url('../images/growing-flower.jpg');
+    background-image: url('../images/simple_background.jpg');
     display: flex;
     background-size: cover;
     background-position: center;
@@ -15,7 +15,6 @@ body {
     width: 100%;
     height: 100vh;
 }
-
 
 main {
     flex: 1;

@@ -26,9 +26,6 @@
                 <h5 class="card-title">{{ habit.name }}</h5>
               </a>
                 <h6 class="card-subtitle mb-2 text-body-secondary">Category: {{ habit.category }}</h6>
-                <h6 class="card-subtitle mb-2 text-body-secondary">Type: {{ habit.make_or_break }} </h6>
-                <h6 class="card-subtitle mb-2 text-body-secondary">Goal: {{ habit.goal }}</h6>
-                <h6 class="card-subtitle mb-2 text-body-secondary">Frequency: {{ habit.frequency }} per {{ habit.unit }} </h6>
                 <h6 class="card-subtitle mb-2 text-body-secondary">Status: Active</h6>
             </div>
           {% endif %}
@@ -47,8 +44,8 @@
               <a href="{% url 'detail' habit.id %}">
                 <h5 class="card-title">{{ habit.name }}</h5>
               </a>
-                <h6 class="card-subtitle mb-2 text-body-secondary">Status: Inactive</h6>
                 <h6 class="card-subtitle mb-2 text-body-secondary">Category: {{ habit.category }}</h6>
+                <h6 class="card-subtitle mb-2 text-body-secondary">Status: Inactive</h6>
             </div>
           {% endif %}
         {% endfor %}

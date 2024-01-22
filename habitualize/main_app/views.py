@@ -79,13 +79,10 @@ class HabitUpdate(LoginRequiredMixin, UpdateView):
 
     def get_success_url(self):
         return reverse('detail', kwargs={'habit_id': self.object.id})
-  
-
 
 class HabitDelete(LoginRequiredMixin, DeleteView):
   model = Habit
   success_url = '/habits'
-
   
 def signup(request):
   error_message = ''
@@ -154,5 +151,15 @@ def event(request, habit_id, habit_name):
         new_event.save()
         return HttpResponseRedirect(reverse('calendar'))
     return render(request, 'cal/event.html', {'form': form})
+
+def index(request):
+    habits = Habit.objects.all()
+    search_query = request.GET.get('search')
+    if search_query:
+        habits = habits.filter(name__icontains=search_query)
+
+    context = {'habits': habits}
+    return render(request, 'habits/index.html', context)
+
 
 

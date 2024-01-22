@@ -16,5 +16,4 @@ urlpatterns = [
   path('calendar/previous/', views.prev_month, name='prev_month_calendar'),
   path('calendar/next/', views.next_month, name='next_month_calendar'),
   path('event/edit/<int:event_id>/', views.event, name='event_edit'),
-  path('random_quote/', views.random_quote, name='random_quote')
 ]

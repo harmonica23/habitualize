@@ -24,6 +24,7 @@ main {
 .footer {
     margin-top: auto !important;
     padding-top: 2vmin;
+    font-size: 2vmin;
 }
 
 
@@ -42,12 +43,16 @@ h1,
 }
 
 .quote {
-    font-family: 'Seaweed Script', cursive;
+    font-family: 'Euphoria Script', cursive;
     text-align: center;
-    font-size: 6vmin; /* Adjust the font size to your preference */
-    color: #264143; /* Set the color to your desired color */
-    margin-top: 20vmin; /* Adjust the margin-top to create space at the top */
+    font-size: 7vmin; 
+    color: #264143; 
+    margin-top: 20vmin;
+    margin-left: 4vmin;
+    margin-right: 4vmin;
 }
+
+
 
 
 /* form and card styling */
@@ -126,7 +131,7 @@ input,
     padding: 15px;
     margin: auto;
     width: 290px;
-    font-size: 15px;
+    font-size: 3vmin;
     background: #d49584;
     border-radius: 10px;
     font-weight: 800;

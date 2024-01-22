@@ -19,7 +19,7 @@
   <div class="form_area">
     <p class="title">Add Event</p>
 
-    <form action="{% url 'event_new' %}" method="POST">
+    <form action="{% url 'event_new' habit_id=habit.id %}" method="POST">
       {% csrf_token %}
       {{ event_form.as_p }}
       <button type="submit" class="addevt-btn">SAVE</button>

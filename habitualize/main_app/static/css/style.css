@@ -1,13 +1,8 @@
-/* ERICA CSS start */
 /* overall style start*/
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-
-body.landing-page {
-    background-image: url('../images/growing-flower.jpg') !important;
 }
 
 body {
@@ -32,10 +27,6 @@ main {
 }
 /* overall style end */
 
-/* nav bar override */
-#navbar {
-    background-color: rgba(255, 255, 255, 0.5); 
-}
 
 /* misc styles */
 .card, h1, .order-by {
@@ -45,16 +36,11 @@ main {
 }
 
 .status-radio-group {
-    display: flex;
-    align-items: center;
-}
-
-.status-radio-group label {
-    margin-right: 10px; /* Adjust the margin as needed */
+    margin-right: 1vmin; /* Adjust the margin as needed */
 }
 
 
-/* sign up form start */
+/* form and card styling */
 .container, .card {
     display: flex;
     align-items: center;
@@ -144,7 +130,7 @@ label,
 p   {
     margin: auto;
 }
-/* sign up form end */
+
 
 
 /* login button make smaller */
@@ -158,7 +144,6 @@ p   {
 }
 
 /* calendar page style */
-
 .prev-month-left {
     float: left;
     padding: 2vmin;

@@ -125,17 +125,16 @@ def next_month(d):
     return month
 
 @login_required
-def event(request, event_id=None):
+def event(request, habit_id):
     instance = Event()
-    if event_id:
-        instance = get_object_or_404(Event, pk=event_id)
-    else:
-        instance = Event()
     
     form = EventForm(request.POST or None, instance=instance)
     if request.POST and form.is_valid():
-        form.save()
-        return HttpResponseRedirect(reverse('cal:calendar'))
+        new_event=form.save(commit=False)
+        new_event.habit_id=habit_id
+        new_event.user_id=request.user.id
+        new_event.save()
+        return HttpResponseRedirect(reverse('calendar'))
     return render(request, 'cal/event.html', {'form': form})
 
 

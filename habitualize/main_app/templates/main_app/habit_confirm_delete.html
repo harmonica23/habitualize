@@ -2,11 +2,14 @@
 
 {% block content %}
   <div style="text-align: center; margin-top: 50px;"> <!-- Adjust margin-top as needed -->
-    <h1>Remove Habit</h1><br /><br />
+    <h1>Remove Habit</h1><br />
     <h4>Are you sure you want to delete <span class="teal-text">{{ object.name }}</span>?</h4>
     <form action="" method="POST" style="display: inline-block;">
       {% csrf_token %}
-      <input type="submit" value="Yes - Delete!" class="btn">
+      <br />
+      <button type="submit" class="delete-btn">Delete</button>
+      <br />
+      <br />
       <a href="{% url 'detail' habit.id %}">Cancel</a>
     </form>
   </div>

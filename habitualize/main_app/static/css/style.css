@@ -54,6 +54,7 @@ h1,
 }
 
 
+
 /* form and card styling */
 .container,
 .card {
@@ -126,6 +127,8 @@ input,
 .logout-btn,
 .submit-btn,
 .addevt-btn,
+.delete-btn,
+.cancel-btn,
 .prev-month-left,
 .prev-month-right{
     padding: 15px;
@@ -170,7 +173,9 @@ p {
 .submit-btn,
 .addevt-btn,
 .signup-btn,
-.logout-btn {
+.logout-btn,
+.delete-btn,
+.cancel-btn {
     padding: 0;
     max-width: 15vmin;
 }

@@ -14,5 +14,5 @@ urlpatterns = [
   path('calendar/', views.CalendarView.as_view(), name='calendar'),
   path('habit/<int:habit_id>/<str:habit_name>/event/new/', views.event, name='event_new'),
   path('event/edit/<int:event_id>/', views.event, name='event_edit'),
-  path('random_quote/', views.random_quote_view, name='random_quote')
+  path('random_quote/', views.random_quote, name='random_quote')
 ]

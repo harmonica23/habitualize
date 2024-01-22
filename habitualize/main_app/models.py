@@ -5,25 +5,29 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 class Habit(models.Model):
-  name = models.CharField(max_length=100)
-  goal = models.IntegerField()
-  make_or_break = models.CharField(max_length=100)
-  status = models.BooleanField(default=True)
-  user = models.ForeignKey(User, on_delete=models.CASCADE)
-  created_at = models.DateTimeField(auto_now_add=True)
-  category_choices = [
-      ('Health', 'Health'),
-      ('Fitness', 'Fitness'),
-      ('Personal Development', 'Personal Development'),
-      ('Relationships', 'Relationships'),
-      ('Other', 'Other'), 
-  ]
-  category = models.CharField(max_length=50, choices=category_choices, blank=True, null=True)
-  def __str__(self):
-    return f'{self.name} ({self.id})'
+    name = models.CharField(max_length=100)
+    goal = models.IntegerField(default=0)
+    frequency = models.CharField(max_length=100)
+    unit = models.CharField(max_length=100) 
+    make_or_break = models.CharField(max_length=100)
+    status = models.BooleanField(default=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
+    category = models.CharField(max_length=50, null=True, blank=True) 
   
-  def get_absolute_url(self):
-    return reverse('detail', kwargs={'habit_id': self.id})
+    category_choices = [
+        ('Health', 'Health'),
+        ('Fitness', 'Fitness'),
+        ('Personal Development', 'Personal Development'),
+        ('Relationships', 'Relationships'),
+        ('Other', 'Other'),
+    ]
+
+    def __str__(self):
+      return f'{self.name} ({self.id})'
+
+    def get_absolute_url(self):
+      return reverse('detail', kwargs={'habit_id': self.id})
 
 class Journal(models.Model):
   entry = models.CharField(max_length=500)

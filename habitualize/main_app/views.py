@@ -156,9 +156,12 @@ def get_forismatic_quote():
         print(f"Error fetching quote: {e}")
         return None
 
-def random_quote_view(request):
+def random_quote(request):
+    # Call the function to get a Forismatic quote
     quote = get_forismatic_quote()
-  
-    return render(request, 'random_quote.html', {'random_quote': quote})
 
-
+    # Display the quote if available
+    if quote:
+        return HttpResponse(f"Random Quote: {quote}")
+    else:
+        return HttpResponse("Failed to retrieve a quote.")

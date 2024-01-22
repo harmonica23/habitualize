@@ -98,7 +98,9 @@ class CalendarView(ListView):
           html_cal = cal.formatmonth(withyear=True, user_id=self.request.user)
           context['calendar'] = mark_safe(html_cal)
           context['prev_month'] = prev_month(d)
+
           #context['next_month'] = next_month(d)
+
         else:
           context['calendar'] = "User not authenticated"
         return context

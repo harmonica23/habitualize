@@ -10,7 +10,7 @@
         <form action="" method="POST" id="habitForm">
           {% csrf_token %}
           {{ form.name.label_tag }} {{ form.name }}<br />
-          {{ form.goal.label_tag }} {{ form.goal }}
+          {{ form.goal.label_tag }} {{ form.goal }}<br/>
           {{ form.frequency.label_tag }} {{ form.frequency }}Per {{ form.unit }}<br />
           {{ form.make_or_break.label_tag }} {{ form.make_or_break }}<br />
           {{ form.category.label_tag }} {{ form.category }}<br />

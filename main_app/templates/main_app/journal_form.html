@@ -1,63 +1,63 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <h1>Journal Entry</h1>
+<h1>Journal Entry</h1>
 
-  <p id="current-date">Today's Date:</p>
-  {% load tz %} {# Load the time zone library #}
-
-  <div class="center-table">
+<p id="current-date">Today's Date:</p>
+{% load tz %} {# Load the time zone library #}
+<br />
+<div class="center-table">
 
   {% if active_habits %}
-    <form method="post" action="{% url 'create_journal' %}">
-      {% csrf_token %}
-      <table>
-        <thead>
-          <tr>
-            <th>Habit</th>
-            <th>Did you achieve this habit today?</th>
-            <th>Streak</th>
-            <th>Longest Streak</th>
-            <th>Total Count</th>
-          </tr>
-        </thead>
-        <tbody>
-          {% for habit in active_habits %}
-  <tr>
-    <td>{{ habit.name }}</td>
-    <td>
-      <div class="checkbox-wrapper-5">
-        <div class="check">
-          <input id="check-{{ habit.id }}" type="checkbox" name="checkbox_{{ habit.id }}" checked>
-          <label for="check-{{ habit.id }}"></label>
-        </div>
-      </div>
-    </td>
-  </tr>
-{% endfor %}
-        </tbody>
-      </table>
-      
-      <div class="input-wrapper">
-        <label>Entry:</label>
-        <input type="text" placeholder="Type here..." name="text" class="input">
-      </div>
+  <form method="post" action="{% url 'create_journal' %}">
+    {% csrf_token %}
+    <table>
+      <thead>
+        <tr>
+          <th>Habit</th>
+          <th>Achieved today?</th>
+          <th>Streak</th>
+          <th>Longest Streak</th>
+          <th>Total Count</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for habit in active_habits %}
+        <tr>
+          <td>{{ habit.name }}</td>
+          <td>
+            <div class="checkbox-wrapper-5">
+              <div class="check">
+                <input id="check-{{ habit.id }}" type="checkbox" name="checkbox_{{ habit.id }}" checked>
+                <label for="check-{{ habit.id }}"></label>
+              </div>
+            </div>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </form>
+</div>
 
-      <button type="submit" class="submit-btn">Submit</button>
-    
-    </form>
-    {% else %}
-    <p>No active habits.</p>
-    
-  </div>
+<br />
+<div class="input-wrapper">
+  <input type="text" placeholder="Your journal entry here..." name="text" class="input">
+  <br />
+  <br />
+</div>
+<button type="submit" class="submit-btn" id="journal-btn">Submit</button>
+{% else %}
+<p>No active habits.</p>
 
-  {% endif %}
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const currentDateElement = document.getElementById('current-date');
-      const currentDate = new Date();
-      const formattedDate = currentDate.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
-      currentDateElement.textContent = 'Current Date: ' + formattedDate;
-    });
-  </script>
+
+{% endif %}
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const currentDateElement = document.getElementById('current-date');
+    const currentDate = new Date();
+    const formattedDate = currentDate.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+    currentDateElement.textContent = 'Current Date: ' + formattedDate;
+  });
+</script>
 {% endblock %}

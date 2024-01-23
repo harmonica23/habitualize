@@ -48,6 +48,10 @@ p {
     margin-right: 4vmin;
 }
 
+#journal-btn {
+    margin-left: 45%;
+}
+
 /* form and card styling */
 .container,
 .card {
@@ -142,6 +146,7 @@ input,
 .login-btn:hover,
 .submit-btn:hover,
 .addevt-btn:hover,
+.logout-btn:hover,
 a:hover {
     opacity: .9;
     color: brown !important;

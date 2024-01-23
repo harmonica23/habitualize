@@ -2,6 +2,10 @@
 
 {% block content %}
   <h1>Journal Entry</h1>
+
+
+  <div class="center-table">
+
   {% if active_habits %}
     <form method="post" action="{% url 'create_journal' %}">
       {% csrf_token %}
@@ -33,6 +37,7 @@
       </table>
       
       <label>Mood:</label>
+      
     <select name="mood">
       <option value="1">1</option>
       <option value="2">2</option>
@@ -46,7 +51,10 @@
     </div>
     
     </form>
-  {% else %}
+    {% else %}
     <p>No active habits.</p>
+    
+  </div>
+
   {% endif %}
 {% endblock %}

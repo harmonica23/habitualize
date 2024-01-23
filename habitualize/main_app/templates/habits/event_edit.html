@@ -1,14 +1,18 @@
 {% extends 'base.html' %}
+
 {% block content %}
+  <h2>Edit Event</h2>
 
-<h2>Edit Event</h2>
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <label for="{{ form.start_time.id_for_label }}">Start Time:</label>
+    {{ form.start_time }}
+    
+    <label for="{{ form.end_time.id_for_label }}">End Time:</label>
+    {{ form.end_time }}
 
-<form method="post" enctype="multipart/form-data">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <button type="submit">Save Changes</button>
-</form>
+    <button type="submit">Save Changes</button>
+  </form>
 
-<a href="{% url 'calendar' %}">Back to Calendar</a>
-
+  <a href="{% url 'calendar' %}">Back to Calendar</a>
 {% endblock %}

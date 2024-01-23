@@ -11,10 +11,10 @@
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css">
-    <link rel="stylesheet" type="text/css" href="{'% static 'cal/css/styles.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Seaweed+Script&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap" rel="stylesheet">
 </head>
 
 <body class="d-flex flex-column min-vh-100">
@@ -38,6 +38,9 @@
                             <a class="nav-link" href="{% url 'index' %}">View All Habits</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" href="{% url 'journal' %}">Journal of the Day</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="{% url 'calendar' %}">Calendar</a>
                         </li>
                         {% else %}
@@ -52,13 +55,11 @@
                     {% if user.is_authenticated %}
                     <form method="post" action="{% url 'logout' %}">
                         {% csrf_token %}
-                        <button class="login-btn" type="submit">Log Out</button>
+                        <button class="logout-btn" type="submit">Log Out</button>
                     </form>
                     {% endif %}
                 </div>
         </nav>
-
-
 
         {% block content %}
         {% endblock %}

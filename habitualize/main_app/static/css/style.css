@@ -15,6 +15,7 @@ body {
     width: 100%;
     height: 100vh;
     padding-top: 75px;
+    font-family: 'Quicksand', sans-serif;
 }
 
 main {
@@ -24,6 +25,7 @@ main {
 .footer {
     margin-top: auto !important;
     padding-top: 2vmin;
+    font-size: 2vmin;
 }
 
 
@@ -42,12 +44,15 @@ h1,
 }
 
 .quote {
-    font-family: 'Seaweed Script', cursive;
+    font-family: 'Euphoria Script', cursive;
     text-align: center;
-    font-size: 6vmin; /* Adjust the font size to your preference */
-    color: #264143; /* Set the color to your desired color */
-    margin-top: 20vmin; /* Adjust the margin-top to create space at the top */
+    font-size: 7vmin; 
+    color: #264143; 
+    margin-top: 20vmin;
+    margin-left: 4vmin;
+    margin-right: 4vmin;
 }
+
 
 
 /* form and card styling */
@@ -119,18 +124,25 @@ input,
 
 .signup-btn,
 .login-btn,
+.logout-btn,
 .submit-btn,
 .addevt-btn,
+.delete-btn,
+.cancel-btn,
 .prev-month-left,
 .prev-month-right{
     padding: 15px;
     margin: auto;
     width: 290px;
-    font-size: 15px;
+    font-size: 3vmin;
     background: #d49584;
     border-radius: 10px;
-    font-weight: 800;
+    font-weight: 500;
     box-shadow: 3px 3px 0px 0px #f1be93;
+}
+
+.logout-btn {
+    font-size: 2vmin !important;
 }
 
 .signup-btn:hover,
@@ -160,7 +172,10 @@ p {
 .login-btn,
 .submit-btn,
 .addevt-btn,
-.signup-btn {
+.signup-btn,
+.logout-btn,
+.delete-btn,
+.cancel-btn {
     padding: 0;
     max-width: 15vmin;
 }
@@ -250,9 +265,21 @@ ul {
 }
 
 .order-by {
-    color: rgb(203, 152, 136);
+    color: rgb(0, 0, 0);
 }
 
 .order-by a {
     color: rgb(174, 105, 116); 
 }
+
+.habits-form {
+    margin-top: 30px;
+    margin-left: 20px;
+}
+
+.habits-form table td {
+    padding: 8px; 
+    padding-left: 10px;
+   
+}
+

@@ -1,19 +1,20 @@
 {% extends 'base.html' %}
+
 {% block content %}
 
 <div class="container">
   <div class="form_area">
-    <p class="title">LOG IN</p>
+    <p class="title">Log In</p>
     <p class="red-text">{{ error_message }}</p>
 
     <form action="{% url 'login' %}" method="POST">
       {% csrf_token %}
-      {{ form.as_p }}
-      <input type="hidden" name="next" value="{{ next }}">
+      {{ form.username.label_tag }} {{ form.username }}<br>
+      {{ form.password.label_tag }} {{ form.password }}<br>
+      <input type="hidden" name="next" value="{{ next }}"> 
       <button type="submit" class="login-btn">Log In</button>
     </form>
-    <br />
-    <p>Need an Account? <a class="link" href="{% url 'signup' %}">Create one Here!</a></p>
+    <p style="margin-top: 10px;">Need an Account? <a class="link" href="{% url 'signup' %}">Create one Here!</a></p>
   </div>
 </div>
 

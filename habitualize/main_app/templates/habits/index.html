@@ -2,18 +2,6 @@
 {% block content %}
 
 <h1>Habits List</h1>
-<div class="order-by">
-  Order by:
-  <a href="?order_by=created_at">Created at</a>
-  or
-  <a href="?order_by=category">Category</a>
-  {% if current_order == 'created_at' %}
-  <a href="?order_by=-created_at"></a>
-  {% else %}
-  <a href="?order_by=created_at"></a>
-  {% endif %}
-</div>
-
 <div class="container">
   <div class="form_area">
     <h3>Active Habits</h3>

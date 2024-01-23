@@ -7,12 +7,12 @@
         <p class="red-text">{{ error_message }}</p>
         <form action="{% url 'signup' %}" method="POST" class="form_group">
             {% csrf_token %}
-            {{ form.as_p }}
-            <br>
-            <button type="submit" class="signup-btn">SIGN UP</button>
-            <br>
+            {{ form.username.label_tag }} {{ form.username }}<br>
+            {{ form.password1.label_tag }} {{ form.password1 }}<br>
+            {{ form.password2.label_tag }} {{ form.password2 }}<br>
+            <button type="submit" class="signup-btn">Sign Up</button>
         </form>
-        <p>Have an Account? <a class="link" href="{% url 'login' %}">Login Here!</a></p>
+        <p style="margin-top: 10px;">Have an Account? <a class="link" href="{% url 'login' %}">Login Here!</a></p>
     </div>
 </div>
 {% endblock %}

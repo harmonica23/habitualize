@@ -39,10 +39,6 @@ h1,
     text-align: center;
 }
 
-/* .status-radio-group {
-    margin-right: 1vmin;
-} */
-
 .quote {
     font-family: 'Euphoria Script', cursive;
     text-align: center;
@@ -167,7 +163,6 @@ p {
 }
 
 
-
 /* login button make smaller */
 .login-btn,
 .submit-btn,
@@ -184,7 +179,6 @@ p {
 #id_status_1 {
     box-shadow: none !important;
 }
-
 
 
 /* calendar page style */
@@ -286,12 +280,11 @@ ul {
 
 
 
-/* Center the table */
+/* journal page */
 .center-table {
     margin-left: 20%;
 }
 
-/* Style the table */
 .center-table table {
     border-collapse: collapse;
     width: 80%;
@@ -309,7 +302,6 @@ ul {
     background-color: #f2f2f2;
 }
 
-
 .input-wrapper input {
     background-color: #eee;
     border: none;
@@ -321,9 +313,8 @@ ul {
     color: lightcoral;
     box-shadow: 0 0.4rem #dfd9d9;
     cursor: pointer;
-  }
-  
-  .input-wrapper input:focus {
-    outline-color: lightcoral;
-  }
+}
 
+.input-wrapper input:focus {
+    outline-color: lightcoral;
+}

@@ -9,6 +9,44 @@
 <div class="center-table">
 
   {% if active_habits %}
+
+    <form method="post" action="{% url 'create_journal' %}">
+      {% csrf_token %}
+      <table>
+        <thead>
+          <tr>
+            <th>Habit</th>
+            <th>Did you achieve this habit today?</th>
+            <th>streak</th>
+            <th>Longest Streak</th>
+            <th>Total Count</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for habit in active_habits %}
+  <tr>
+    <td>{{ habit.name }}</td>
+    <td>
+      <div class="checkbox-wrapper-5">
+        <div class="check">
+          <input id="check-{{ habit.id }}" type="checkbox" name="checkbox_{{ habit.id }}" checked>
+          <label for="check-{{ habit.id }}"></label>
+        </div>
+      </div>
+    </td>
+    <td>5</td>
+    <td>10</td>
+    <td>20</td>
+  </tr>
+{% endfor %}
+        </tbody>
+      </table>
+      
+      <div class="input-wrapper">
+        <label>Entry:</label>
+        <input type="text" placeholder="Type here..." name="text" class="input">
+      </div>
+
   <form method="post" action="{% url 'create_journal' %}">
     {% csrf_token %}
     <table>

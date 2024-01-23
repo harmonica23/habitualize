@@ -28,6 +28,7 @@ def create_journal(request):
   active_habits = Habit.objects.filter(user=user, status=True)
   if journals.exists():
       journals = journals.filter(habit__in=active_habits)
+
   context = {
       'journals': journals,
       'active_habits': active_habits
@@ -77,6 +78,13 @@ def habits_detail(request, habit_id):
     'event_form':event_form
   })
  
+class JournalList(ListView):
+    model = Journal
+    template_name = 'main_app/journal_index.html'
+    context_object_name = 'entries'
+
+    def get_queryset(self):
+        return Journal.objects.filter(user=self.request.user)
 
 class HabitCreate(LoginRequiredMixin, CreateView):
     model = Habit

@@ -40,43 +40,7 @@
   </tr>
 {% endfor %}
         </tbody>
-      </table>
-      
-      <div class="input-wrapper">
-        <label>Entry:</label>
-        <input type="text" placeholder="Type here..." name="text" class="input">
-      </div>
-
-  <form method="post" action="{% url 'create_journal' %}">
-    {% csrf_token %}
-    <table>
-      <thead>
-        <tr>
-          <th>Habit</th>
-          <th>Achieved today?</th>
-          <th>Streak</th>
-          <th>Longest Streak</th>
-          <th>Total Count</th>
-        </tr>
-      </thead>
-      <tbody>
-        {% for habit in active_habits %}
-        <tr>
-          <td>{{ habit.name }}</td>
-          <td>
-            <div class="checkbox-wrapper-5">
-              <div class="check">
-                <input id="check-{{ habit.id }}" type="checkbox" name="checkbox_{{ habit.id }}" checked>
-                <label for="check-{{ habit.id }}"></label>
-              </div>
-            </div>
-          </td>
-        </tr>
-        {% endfor %}
-      </tbody>
-    </table>
-  </form>
-</div>
+      </table>     
 
 <br />
 <div class="input-wrapper">

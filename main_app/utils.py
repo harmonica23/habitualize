@@ -18,7 +18,6 @@ class Calendar(HTMLCalendar):
             return f"<td><span class='date'>{day}</span><ul> {d} </ul></td>"
         return '<td></td>'
     
-
     def formatweek(self, theweek, events):
         week = ''
         for d, weekday in theweek:

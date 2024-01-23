@@ -3,8 +3,6 @@ from django.urls import reverse
 from django.contrib.auth.models import User
 from django.core.validators import MinValueValidator, MaxValueValidator
 
-
-# Create your models here.
 class Habit(models.Model):
     name = models.CharField(max_length=100)
     goal = models.IntegerField(default=0)
@@ -23,7 +21,6 @@ class Habit(models.Model):
         ('Relationships', 'Relationships'),
         ('Other', 'Other'),
     ]
-
     def __str__(self):
       return f'{self.name} ({self.id})'
 

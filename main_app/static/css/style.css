@@ -28,8 +28,6 @@ main {
     font-size: 2vmin;
 }
 
-
-
 /* misc styles */
 .card,
 h1,
@@ -52,8 +50,6 @@ h1,
     margin-left: 4vmin;
     margin-right: 4vmin;
 }
-
-
 
 /* form and card styling */
 .container,
@@ -166,8 +162,6 @@ p {
     margin: auto;
 }
 
-
-
 /* login button make smaller */
 .login-btn,
 .submit-btn,
@@ -184,8 +178,6 @@ p {
 #id_status_1 {
     box-shadow: none !important;
 }
-
-
 
 /* calendar page style */
 .prev-month-left,
@@ -253,7 +245,6 @@ ul {
     padding: 0px 5px 0px 20px;
 }
 
-
 /* Habit Form */
 .card,
 .habit-item {
@@ -284,8 +275,6 @@ ul {
 
 }
 
-
-
 /* Center the table */
 .center-table {
     margin-left: 20%;
@@ -308,7 +297,6 @@ ul {
 .center-table th {
     background-color: #f2f2f2;
 }
-
 
 .input-wrapper input {
     background-color: #eee;

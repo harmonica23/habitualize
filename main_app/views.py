@@ -27,13 +27,11 @@ def create_journal(request):
    active_habits = Habit.objects.filter(user=user, status=True)
    if journals.exists():
       journals = journals.filter(habit__in=active_habits)
-     
-   context = {
+      context = {
       'journals': journals,
       'active_habits': active_habits
    }
    return render(request, 'main_app/journal_form.html', context)
-
 
 @login_required
 def habits_index(request):
@@ -54,7 +52,6 @@ def home(request):
         "format": "json",
         "lang": "en",
     }
-
     try:
         response = requests.get(url, params=params)
         response.raise_for_status()
@@ -64,11 +61,6 @@ def home(request):
         print(f"Error fetching quote: {e}")
         # Return an HttpResponse with an error message
         return render(request, 'home.html', {'quote': 'Error fetching quote. Please try again later.'})
-    
-
-
-  
-    
 
 @login_required
 def calendar(request):
@@ -121,7 +113,6 @@ def signup(request):
   context = {'form': form, 'error_message': error_message}
   return render(request, 'registration/signup.html', context)
 
-
 class CalendarView(ListView):
     model = Event
     template_name = 'calendar.html'
@@ -134,13 +125,10 @@ class CalendarView(ListView):
           html_cal = cal.formatmonth(withyear=True, user_id=self.request.user)
           context['calendar'] = mark_safe(html_cal)
           context['prev_month'] = prev_month(d)
-
           #context['next_month'] = next_month(d)
-
         else:
           context['calendar'] = "User not authenticated"
         return context
-
 
 def get_date(req_day):
     if req_day:
@@ -166,7 +154,6 @@ def next_month(d):
 def event(request, event_id):
     instance = Event()
     template_name = 'event_edit.html'
-    
     form = EventForm(request.POST or None, instance=instance)
     if request.POST and form.is_valid():
         new_event=form.save(commit=False)
@@ -182,7 +169,6 @@ def index(request):
     search_query = request.GET.get('search')
     if search_query:
         habits = habits.filter(name__icontains=search_query)
-
     context = {'habits': habits}
     return render(request, 'habits/index.html', context)
 

@@ -30,9 +30,15 @@ class Habit(models.Model):
       return reverse('detail', kwargs={'habit_id': self.id})
 
 class Journal(models.Model):
+  user = models.ForeignKey(User, on_delete=models.CASCADE)
   entry = models.CharField(max_length=500)
+  habit = models.ForeignKey(Habit, on_delete=models.CASCADE)
+  date = models.DateField('Journal Date')
+  class Meta:
+    ordering = ['-date']
 
-  habit = models.ManyToManyField(Habit)
+  def __str__(self):
+      return f"{self.user.username}'s Journal Entry"
 
 class Mood(models.Model):
   mood = object
@@ -48,5 +54,7 @@ class Event(models.Model):
         return self.title
     @property
     def get_html_url(self):
-        url = reverse('cal:event_edit', args=(self.id,))
+        url = reverse('event_edit', args=(self.id,))
         return f'<a href="{url}"> {self.title} </a>'
+    def get_absolute_url(self):
+      return reverse('detail', kwargs={'event_id': self.id})

@@ -1,7 +1,6 @@
 from calendar import HTMLCalendar
 from datetime import timedelta
 from .models import Event
-from django.db.models import Q
 
 class Calendar(HTMLCalendar):
     def __init__(self, year=None, month=None):
@@ -13,8 +12,8 @@ class Calendar(HTMLCalendar):
         filtered_events = events.filter(end_time__day__gte=day, start_time__day__lte=day)
         d = ''
         for event in filtered_events:
-            d+= f'<li> {event.title} </li>'
-
+         #   d+= f'<li> <a href="{ url "event_edit" habit_id=event.habit_id habit_name=event.habit_name event_id=event.id }"> {event.title} </a></li>'
+            d+= f'<li> <a href="habit/{event.id}/edit"> {event.title} </a></li>'
         if day != 0:
             return f"<td><span class='date'>{day}</span><ul> {d} </ul></td>"
         return '<td></td>'

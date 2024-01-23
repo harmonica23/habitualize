@@ -156,18 +156,19 @@ def next_month(d):
     return month
 
 @login_required
-def event(request, habit_id, habit_name):
+def event(request, event_id):
     instance = Event()
+    template_name = 'event_edit.html'
     
     form = EventForm(request.POST or None, instance=instance)
     if request.POST and form.is_valid():
         new_event=form.save(commit=False)
-        new_event.habit_id=habit_id
+        new_event.event_id=event_id
         new_event.user_id=request.user.id
-        new_event.title=habit_name
+      #  new_event.title=habit_name
         new_event.save()
         return HttpResponseRedirect(reverse('calendar'))
-    return render(request, 'cal/event.html', {'form': form})
+    return render(request, 'event_edit.html', {'form': form})
 
 def index(request):
     habits = Habit.objects.all()

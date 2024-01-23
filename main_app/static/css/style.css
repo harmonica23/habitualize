@@ -39,15 +39,15 @@ h1,
     text-align: center;
 }
 
-.status-radio-group {
+/* .status-radio-group {
     margin-right: 1vmin;
-}
+} */
 
 .quote {
     font-family: 'Euphoria Script', cursive;
     text-align: center;
-    font-size: 7vmin; 
-    color: #264143; 
+    font-size: 7vmin;
+    color: #264143;
     margin-top: 20vmin;
     margin-left: 4vmin;
     margin-right: 4vmin;
@@ -130,7 +130,7 @@ input,
 .delete-btn,
 .cancel-btn,
 .prev-month-left,
-.prev-month-right{
+.prev-month-right {
     padding: 15px;
     margin: auto;
     width: 290px;
@@ -188,7 +188,8 @@ p {
 
 
 /* calendar page style */
-.prev-month-left, .prev-month-right {
+.prev-month-left,
+.prev-month-right {
     padding: 2vmin;
     max-width: 25vmin;
     text-align: center;
@@ -256,12 +257,12 @@ ul {
 /* Habit Form */
 .card,
 .habit-item {
-    color: rgb(203, 152, 136); 
+    color: rgb(203, 152, 136);
     padding: 1vmin;
 }
 
 .card a {
-    color: rgb(170, 118, 103); 
+    color: rgb(170, 118, 103);
 }
 
 .order-by {
@@ -269,7 +270,7 @@ ul {
 }
 
 .order-by a {
-    color: rgb(174, 105, 116); 
+    color: rgb(174, 105, 116);
 }
 
 .habits-form {
@@ -278,7 +279,51 @@ ul {
 }
 
 .habits-form table td {
-    padding: 8px; 
+    padding: 8px;
     padding-left: 10px;
-   
+
 }
+
+
+
+/* Center the table */
+.center-table {
+    margin-left: 20%;
+}
+
+/* Style the table */
+.center-table table {
+    border-collapse: collapse;
+    width: 80%;
+    /* Adjust the width as needed */
+}
+
+.center-table th,
+.center-table td {
+    border: 1px solid #dddddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.center-table th {
+    background-color: #f2f2f2;
+}
+
+
+.input-wrapper input {
+    background-color: #eee;
+    border: none;
+    padding: 1rem;
+    font-size: 1rem;
+    width: 50em;
+    height: 5em;
+    border-radius: 1rem;
+    color: lightcoral;
+    box-shadow: 0 0.4rem #dfd9d9;
+    cursor: pointer;
+  }
+  
+  .input-wrapper input:focus {
+    outline-color: lightcoral;
+  }
+

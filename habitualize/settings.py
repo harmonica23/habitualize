@@ -36,6 +36,9 @@ DEBUG = True if os.environ['MODE'] == 'dev' else False
 
 ALLOWED_HOSTS = ['*']
 
+CSRF_TRUSTED_ORIGINS = [
+    'https://habitualize-07273966efbf.herokuapp.com/',
+]
 
 # Application definition
 

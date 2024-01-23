@@ -13,7 +13,7 @@ class Calendar(HTMLCalendar):
         filtered_events = events.filter(end_time__day__gte=day, start_time__day__lte=day)
         d = ''
         for event in filtered_events:
-            d+= f'<li> {event.title} </li>'
+            d+= f'<li> <a href="/event/edit/{event.id}"> {event.title} </a></li>'
 
         if day != 0:
             return f"<td><span class='date'>{day}</span><ul> {d} </ul></td>"

@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, reverse 
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
@@ -149,10 +149,11 @@ def get_date(req_day):
     return timezone.now().date()
 
 def prev_month(d):
-    first = d.replace(day=1)
+    first = timezone.now().date().replace(day=1)
     prev_month = first - timedelta(days=1)
-    month = 'month=' + str(prev_month.year) + '-' + str(prev_month.month)
-    return month
+   # month = 'month=' + str(prev_month.year) + '-' + str(prev_month.month)
+    url = reverse('calendar') + f"?month={prev_month.year}-{prev_month.month:02d}"
+    return redirect(url)
 
 def next_month(d):
     days_in_month = calendar.monthrange(d.year, d.month)[1]

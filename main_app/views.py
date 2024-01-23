@@ -1,10 +1,11 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, reverse 
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.list import ListView
+from django.utils import timezone
 from django.http import HttpResponse
 from .models import Habit, Event, Journal
 from django.urls import reverse
@@ -18,6 +19,7 @@ from django.shortcuts import get_object_or_404
 from django.http import HttpResponseRedirect
 import requests
 
+
 @login_required
 def create_journal(request):
    user = request.user
@@ -27,13 +29,11 @@ def create_journal(request):
    active_habits = Habit.objects.filter(user=user, status=True)
    if journals.exists():
       journals = journals.filter(habit__in=active_habits)
-     
-   context = {
+      context = {
       'journals': journals,
       'active_habits': active_habits
    }
    return render(request, 'main_app/journal_form.html', context)
-
 
 @login_required
 def habits_index(request):
@@ -54,7 +54,6 @@ def home(request):
         "format": "json",
         "lang": "en",
     }
-
     try:
         response = requests.get(url, params=params)
         response.raise_for_status()
@@ -64,11 +63,6 @@ def home(request):
         print(f"Error fetching quote: {e}")
         # Return an HttpResponse with an error message
         return render(request, 'home.html', {'quote': 'Error fetching quote. Please try again later.'})
-    
-
-
-  
-    
 
 @login_required
 def calendar(request):
@@ -121,7 +115,6 @@ def signup(request):
   context = {'form': form, 'error_message': error_message}
   return render(request, 'registration/signup.html', context)
 
-
 class CalendarView(ListView):
     model = Event
     template_name = 'calendar.html'
@@ -134,13 +127,10 @@ class CalendarView(ListView):
           html_cal = cal.formatmonth(withyear=True, user_id=self.request.user)
           context['calendar'] = mark_safe(html_cal)
           context['prev_month'] = prev_month(d)
-
           #context['next_month'] = next_month(d)
-
         else:
           context['calendar'] = "User not authenticated"
         return context
-
 
 def get_date(req_day):
     if req_day:
@@ -149,10 +139,11 @@ def get_date(req_day):
     return timezone.now().date()
 
 def prev_month(d):
-    first = d.replace(day=1)
+    first = timezone.now().date().replace(day=1)
     prev_month = first - timedelta(days=1)
-    month = 'month=' + str(prev_month.year) + '-' + str(prev_month.month)
-    return month
+   # month = 'month=' + str(prev_month.year) + '-' + str(prev_month.month)
+    url = reverse('calendar') + f"?month={prev_month.year}-{prev_month.month:02d}"
+    return redirect(url)
 
 def next_month(d):
     days_in_month = calendar.monthrange(d.year, d.month)[1]
@@ -165,7 +156,6 @@ def next_month(d):
 def event(request, event_id):
     instance = Event()
     template_name = 'event_edit.html'
-    
     form = EventForm(request.POST or None, instance=instance)
     if request.POST and form.is_valid():
         new_event=form.save(commit=False)
@@ -181,9 +171,7 @@ def index(request):
     search_query = request.GET.get('search')
     if search_query:
         habits = habits.filter(name__icontains=search_query)
-
     context = {'habits': habits}
     return render(request, 'habits/index.html', context)
-
 
 

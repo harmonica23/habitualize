@@ -28,11 +28,13 @@ class Habit(models.Model):
 
     def get_absolute_url(self):
       return reverse('detail', kwargs={'habit_id': self.id})
+    
+
 
 class Journal(models.Model):
+  user = models.ForeignKey(User, on_delete=models.CASCADE)
   entry = models.CharField(max_length=500)
-
-  habit = models.ManyToManyField(Habit)
+  habit = models.ForeignKey(Habit, on_delete=models.CASCADE)
 
 class Mood(models.Model):
   mood = object

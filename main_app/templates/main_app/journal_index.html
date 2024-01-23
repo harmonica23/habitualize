@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Your Entries</h1>
+
+  {% if entries %}
+    <ul>
+      {% for journal in journals %}
+        <li>{{ journal.date }} </li>
+    
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>No journals available.</p>
+  {% endif %}
+{% endblock %}

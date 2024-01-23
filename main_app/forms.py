@@ -93,3 +93,4 @@ class EventForm(ModelForm):
         self.fields['end_time'].input_formats = ('%Y-%m-%dT%H:%M',)
 
 
+

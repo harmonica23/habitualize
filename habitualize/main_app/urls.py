@@ -16,5 +16,5 @@ urlpatterns = [
   path('habit/<int:habit_id>/<str:habit_name>/event/new/', views.event, name='event_new'),
   path('calendar/previous/', views.prev_month, name='prev_month_calendar'),
   path('calendar/next/', views.next_month, name='next_month_calendar'),
-  path('journal/', views.Journal.as_view(), name='journal'),
+  path('journal/', views.create_journal, name='create_journal'),
 ]

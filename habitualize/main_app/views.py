@@ -21,7 +21,9 @@ import requests
 @login_required
 def journal(request):
    user = request.user
-   today = date.today
+   today = date.today()
+   print(user)
+   print(today)
    journals = Journal.objects.filter(user=user, date=today)
    active_habits = Habit.objects.filter(user=user, status=True)
    if journals.exists():
@@ -32,6 +34,7 @@ def journal(request):
       'active_habits': active_habits
    }
    return render(request, 'journal_form.html', context)
+
 
 class JournalList(LoginRequiredMixin, ListView):
    model = Journal 

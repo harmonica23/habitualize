@@ -2,8 +2,12 @@
 
 {% block content %}
   <h1>Journal Entry</h1>
+
   <p id="current-date">Today's Date:</p>
   {% load tz %} {# Load the time zone library #}
+
+  <div class="center-table">
+
   {% if active_habits %}
     <form method="post" action="{% url 'create_journal' %}">
       {% csrf_token %}
@@ -35,6 +39,7 @@
       </table>
       
       <label>Mood:</label>
+      
       <select name="mood">
         <option value="1">1</option>
         <option value="2">2</option>
@@ -49,9 +54,26 @@
       </div>
 
       <button type="submit" class="submit-btn">Submit</button>
+      
+    <select name="mood">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+    </select><br>
+    <div class="input-wrapper">
+      <label>Entry:</label>
+      <input type="text" placeholder="Type here..." name="text" class="input">
+    </div>
+
+    
     </form>
-  {% else %}
+    {% else %}
     <p>No active habits.</p>
+    
+  </div>
+
   {% endif %}
   <script>
     document.addEventListener('DOMContentLoaded', function() {

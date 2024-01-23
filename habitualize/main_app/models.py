@@ -1,6 +1,7 @@
 from django.db import models
 from django.urls import reverse
 from django.contrib.auth.models import User
+from django.core.validators import MinValueValidator, MaxValueValidator
 
 
 # Create your models here.
@@ -33,6 +34,7 @@ class Journal(models.Model):
   user = models.ForeignKey(User, on_delete=models.CASCADE)
   entry = models.CharField(max_length=500)
   habit = models.ForeignKey(Habit, on_delete=models.CASCADE)
+  mood = models.IntegerField(default=5, validators=[MinValueValidator(1), MaxValueValidator(5)])
   date = models.DateField('Journal Date')
   class Meta:
     ordering = ['-date']

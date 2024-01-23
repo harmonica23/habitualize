@@ -5,6 +5,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.list import ListView
+from django.utils import timezone
 from django.http import HttpResponse
 from .models import Habit, Event, Journal
 from django.urls import reverse
@@ -17,6 +18,7 @@ import calendar
 from django.shortcuts import get_object_or_404
 from django.http import HttpResponseRedirect
 import requests
+
 
 @login_required
 def create_journal(request):
@@ -65,11 +67,6 @@ def home(request):
         # Return an HttpResponse with an error message
         return render(request, 'home.html', {'quote': 'Error fetching quote. Please try again later.'})
     
-
-
-  
-    
-
 @login_required
 def calendar(request):
   return render(request, 'calendar.html')
@@ -184,6 +181,5 @@ def index(request):
 
     context = {'habits': habits}
     return render(request, 'habits/index.html', context)
-
 
 

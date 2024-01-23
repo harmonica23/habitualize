@@ -4,12 +4,10 @@ from django.contrib.auth.models import User
 from .models import Habit, Event, Journal
 from django.forms import ModelForm, DateInput
 
-
 class RegisterUserForm(UserCreationForm):
     username = forms.CharField(label='Create User Name', widget=forms.TextInput(attrs={'class': ['form_style', 'sub_title', 'form_area', 'form_group']}))
     password1 = forms.CharField(label='Create Password', widget=forms.PasswordInput(attrs={'class': ['form_style', 'sub_title', 'form_area', 'form_group']}))
     password2 = forms.CharField(label='Re-enter Password', widget=forms.PasswordInput(attrs={'class': ['form_style', 'sub_title', 'form_area', 'form_group']}))
-
     class Meta:
         model = User
         fields = ('username',)
@@ -20,7 +18,6 @@ class RegisterUserForm(UserCreationForm):
         self.fields['username'].widget.attrs['class'] = ['form_style', 'sub_title', 'form_area', 'form_group']  
         self.fields['password1'].widget.attrs['class'] = ['form_style', 'sub_title', 'form_area', 'form_group'] 
         self.fields['password2'].widget.attrs['class'] = ['form_style', 'sub_title', 'form_area', 'form_group'] 
-
 
 class HabitForm(forms.ModelForm):
     new_category = forms.CharField(max_length=50, required=False, label='New Category')
@@ -81,7 +78,6 @@ class HabitForm(forms.ModelForm):
         if not category and not new_category:
             raise forms.ValidationError('Please select a category or enter a new one.')
         return cleaned_data
-
 
 class EventForm(ModelForm):
     class Meta:

@@ -3,6 +3,8 @@
 {% block content %}
   <h1>Journal Entry</h1>
 
+  <p id="current-date">Today's Date:</p>
+  {% load tz %} {# Load the time zone library #}
 
   <div class="center-table">
 
@@ -38,6 +40,21 @@
       
       <label>Mood:</label>
       
+      <select name="mood">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select><br>
+      
+      <div class="input-wrapper">
+        <label>Entry:</label>
+        <input type="text" placeholder="Type here..." name="text" class="input">
+      </div>
+
+      <button type="submit" class="submit-btn">Submit</button>
+      
     <select name="mood">
       <option value="1">1</option>
       <option value="2">2</option>
@@ -49,6 +66,7 @@
       <label>Entry:</label>
       <input type="text" placeholder="Type here..." name="text" class="input">
     </div>
+
     
     </form>
     {% else %}
@@ -57,4 +75,12 @@
   </div>
 
   {% endif %}
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const currentDateElement = document.getElementById('current-date');
+      const currentDate = new Date();
+      const formattedDate = currentDate.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+      currentDateElement.textContent = 'Current Date: ' + formattedDate;
+    });
+  </script>
 {% endblock %}

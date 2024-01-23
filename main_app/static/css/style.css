@@ -49,7 +49,7 @@ p {
 }
 
 #journal-btn {
-    margin-left: 45%;
+    margin-left: 30%;
 }
 
 /* form and card styling */
@@ -301,6 +301,7 @@ ul {
     background-color: #f2f2f2;
 }
 
+
 .input-wrapper input {
     background-color: #eee;
     border: none;
@@ -312,6 +313,7 @@ ul {
     color: black;
     box-shadow: 0 0.4rem #dfd9d9;
     cursor: pointer;
+    margin-right: 40%;
 }
 
 .input-wrapper input:focus {
@@ -412,3 +414,4 @@ ul {
     left: calc(1.6 * var(--size));
     font-size: calc(.6 * var(--size));
     line-height: 0;
+}

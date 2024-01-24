@@ -32,7 +32,6 @@ def create_journal(request):
     }
     if request.method == 'POST':
         form = JournalForm(request.POST)
-        print(form)
         if form.is_valid():
             print(form)
             new_journal = form.save(commit=False)

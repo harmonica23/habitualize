@@ -34,9 +34,9 @@
         </div>
       </div>
     </td>
-    <td>5</td>
-    <td>10</td>
-    <td>20</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
   </tr>
 {% endfor %}
         </tbody>
@@ -48,10 +48,8 @@
   <br />
   <br />
 </div>
-<button type="submit" class="submit-btn" id="journal-btn">Submit</button>
-<li class="nav-item">
-  <a class="nav-link" href="{% url 'journal_index' %}">All Journal Entries</a>
-</li>
+<button type="submit" class="submit-btn" id="journal-btn">Submit</button><br>
+  <a class="" href="{% url 'journal_index' %}">All Journal Entries</a>
 {% else %}
 <p>No active habits.</p>
 

@@ -2,6 +2,8 @@
 
 ### Date: 1/16/24
 
+[Live site](https://habitualize-07273966efbf.herokuapp.com/) deployed on Heroku
+
 ##### By: [Emily Segundo](https://github.com/emilyThesecond), [Erica Harmon](https://github.com/harmonica23), [Nina Raynor](https://github.com/ninaraynor), & [Rachel Carleton](https://github.com/rachcarleton-ga)
 
 [GitHub](https://github.com/harmonica23/habitualize) | [Trello](https://trello.com/b/yd18VNAl/habitualize) | [Wireframe](https://www.figma.com/file/C27AtGRyCv40sV5Wg0UO6T/Habitualize?type=design&mode=design&t=u9myKvfzsfTiHvVZ-1) | [Pitch Deck](https://docs.google.com/presentation/d/1CYsTH1Uai_M1nYLEdS8zX5NmcQm2EmkRT05twns4RuY/edit?usp=sharing)

@@ -12,7 +12,7 @@ from django.urls import reverse
 from .utils import Calendar
 from django.utils.safestring import mark_safe
 from datetime import date, datetime, timedelta
-from .forms import HabitForm, RegisterUserForm, EventForm
+from .forms import HabitForm, RegisterUserForm, EventForm, JournalForm
 from django.utils import timezone
 import calendar
 from django.shortcuts import get_object_or_404
@@ -22,18 +22,32 @@ import requests
 
 @login_required
 def create_journal(request):
-  user = request.user
-  today = date.today()
-  journals = Journal.objects.filter(user=user, date=today)
-  active_habits = Habit.objects.filter(user=user, status=True)
-  if journals.exists():
-      journals = journals.filter(habit__in=active_habits)
+    user = request.user
+    today = date.today()
 
-  context = {
-      'journals': journals,
-      'active_habits': active_habits
-  }
-  return render(request, 'main_app/journal_form.html', context)
+    active_habits = Habit.objects.filter(user=user, status=True)
+
+    context = {
+        'active_habits': active_habits
+    }
+    if request.method == 'POST':
+        form = JournalForm(request.POST)
+        print(form)
+        if form.is_valid():
+            print(form)
+            new_journal = form.save(commit=False)
+            new_journal.user = request.user
+            new_journal.date_created = today
+            new_journal.save()
+            return redirect('journal_index')
+
+    else:
+        form = JournalForm()
+
+    context['form'] = form
+    return render(request, 'main_app/journal_form.html', context)
+
+
 
 @login_required
 def habits_index(request):
@@ -45,6 +59,18 @@ def habits_index(request):
     }
   return render(request, 'habits/index.html', {
     'habits': habits
+  })
+
+@login_required
+def journal_index(request):
+  order_by = request.GET.get('order_by', 'id')
+  journals = Journal.objects.filter(user=request.user).order_by(order_by)
+  context = {
+        'journals': journals,
+        'current_order': order_by,
+    }
+  return render(request, 'main_app/journal_index.html', {
+    'journals': journals
   })
 
 def home(request):
@@ -78,13 +104,6 @@ def habits_detail(request, habit_id):
     'event_form':event_form
   })
  
-class JournalList(ListView):
-    model = Journal
-    template_name = 'main_app/journal_index.html'
-    context_object_name = 'entries'
-
-    def get_queryset(self):
-        return Journal.objects.filter(user=self.request.user)
 
 class HabitCreate(LoginRequiredMixin, CreateView):
     model = Habit

@@ -31,6 +31,7 @@ class Journal(models.Model):
   user = models.ForeignKey(User, on_delete=models.CASCADE)
   entry = models.CharField(max_length=500)
   habit = models.ForeignKey(Habit, on_delete=models.CASCADE)
+  question = models.BooleanField(default=False)
   mood = models.IntegerField(default=5, validators=[MinValueValidator(1), MaxValueValidator(5)])
   date = models.DateField('Journal Date')
   class Meta:

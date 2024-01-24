@@ -49,6 +49,9 @@
   <br />
 </div>
 <button type="submit" class="submit-btn" id="journal-btn">Submit</button>
+<li class="nav-item">
+  <a class="nav-link" href="{% url 'journal_index' %}">All Journal Entries</a>
+</li>
 {% else %}
 <p>No active habits.</p>
 

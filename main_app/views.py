@@ -29,7 +29,7 @@ def create_journal(request):
   if journals.exists():
       journals = journals.filter(habit__in=active_habits)
 
-   context = {
+  context = {
       'journals': journals,
       'active_habits': active_habits
   }

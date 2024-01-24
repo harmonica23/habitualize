@@ -1,6 +1,6 @@
 # Habitualize
 
-### Date: 1/16/24
+#### Date: 1/16/24
 
 [Live site](https://habitualize-07273966efbf.herokuapp.com/) deployed on Heroku
 
@@ -46,8 +46,9 @@ Habitualize is a powerful Habit Tracker application that helps users build posit
 
 _Credits_
 
-[Wireframe Flowers](https://www.vecteezy.com/members/miguelap)
-[Wireframe Login Form](https://www.vecteezy.com/members/designzone247)
-[Wireframe Calendar](https://www.vecteezy.com/members/113457908403087816098)
-[Wirefram iPhone image](https://unsplash.com/photos/silver-iphone-x-floating-over-open-palm-6wdRuK7bVTE)
-[Calendar resource](https://www.huiwenteo.com/normal/2018/07/29/django-calendar-ii.html)
+- [Wireframe Flowers](https://www.vecteezy.com/members/miguelap)
+- [Wireframe Login Form](https://www.vecteezy.com/members/designzone247)
+- [Wireframe Calendar](https://www.vecteezy.com/members/113457908403087816098)
+- [Wirefram iPhone image](https://unsplash.com/photos/silver-iphone-x-floating-over-open-palm-6wdRuK7bVTE)
+- [Calendar resource](https://www.huiwenteo.com/normal/2018/07/29/django-calendar-ii.html)
+- [Habitualize background image](https://www.vecteezy.com/members/nsmile)

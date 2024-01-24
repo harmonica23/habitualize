@@ -15,4 +15,5 @@ urlpatterns = [
   path('calendar/previous/', views.prev_month, name='prev_month_calendar'),
   path('calendar/next/', views.next_month, name='next_month_calendar'),
   path('journal/', views.create_journal, name='create_journal'),
+  path('journals/', views.JournalList.as_view(), name='journal_index'),
 ]

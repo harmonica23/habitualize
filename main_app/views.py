@@ -87,7 +87,6 @@ def home(request):
         return render(request, 'home.html', {'quote': data['quoteText']})
     except requests.exceptions.RequestException as e:
         print(f"Error fetching quote: {e}")
-        # Return an HttpResponse with an error message
         return render(request, 'home.html', {'quote': 'Error fetching quote. Please try again later.'})
 
 @login_required
@@ -182,7 +181,6 @@ def get_date(req_day):
 def prev_month(d):
     first = timezone.now().date().replace(day=1)
     prev_month = first - timedelta(days=1)
-   # month = 'month=' + str(prev_month.year) + '-' + str(prev_month.month)
     url = reverse('calendar') + f"?month={prev_month.year}-{prev_month.month:02d}"
     return redirect(url)
 
@@ -203,7 +201,6 @@ def event(request, event_id):
         new_event=form.save(commit=False)
         new_event.event_id=event_id
         new_event.user_id=request.user.id
-        #new_event.title=habit_name
         new_event.save()
         return HttpResponseRedirect(reverse('calendar'))
     return render(request, 'event_edit.html', {'form': form})

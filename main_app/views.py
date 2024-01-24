@@ -29,7 +29,7 @@ def create_journal(request):
    active_habits = Habit.objects.filter(user=user, status=True)
    if journals.exists():
       journals = journals.filter(habit__in=active_habits)
-      context = {
+   context = {
       'journals': journals,
       'active_habits': active_habits
    }
@@ -88,6 +88,21 @@ class HabitCreate(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super().form_valid(form)
+    
+class EventNew(CreateView, LoginRequiredMixin):
+  
+    def create_form(request, habit_id, habit_name):
+      instance = Event()
+      template_name = 'event_edit.html'
+      form = EventForm(request.POST or None, instance=instance)
+      if request.POST and form.is_valid():
+        new_event=form.save(commit=False)
+        new_event.habit_id=habit_id
+        new_event.user_id=request.user.id
+        new_event.title=habit_name
+        new_event.save()
+        return HttpResponseRedirect(reverse('calendar'))
+      return render(request, 'event_edit.html', {'form': form})
 
 class HabitUpdate(LoginRequiredMixin, UpdateView):
     model = Habit
@@ -158,10 +173,11 @@ def event(request, event_id):
     template_name = 'event_edit.html'
     form = EventForm(request.POST or None, instance=instance)
     if request.POST and form.is_valid():
+      
         new_event=form.save(commit=False)
         new_event.event_id=event_id
         new_event.user_id=request.user.id
-      #  new_event.title=habit_name
+        #new_event.title=habit_name
         new_event.save()
         return HttpResponseRedirect(reverse('calendar'))
     return render(request, 'event_edit.html', {'form': form})
